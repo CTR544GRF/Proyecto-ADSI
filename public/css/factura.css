@@ -1,0 +1,157 @@
+:root {
+    --verde: #278787;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+    gap: 2rem;
+}
+
+/* Place Holder  */
+::placeholder {
+    color: black;
+}
+
+
+
+/* /* Seccion uno   */
+.seccion_uno {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.crear_factura {
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: black;
+}
+
+.imprimir {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4rem;
+}
+
+/* Seccion Dos */
+.seccion_dos {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+    margin: auto;
+}
+
+/* Seccion Tres*/
+
+.seccion_tres {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    border: 5px solid var(--verde);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.tbl_abajo {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tbl_abajo input {
+    width: 95%;
+    margin: 1%;
+    padding: 0;
+    height: 100%;
+}
+
+.tbl_abajo span {
+    width: 5%;
+}
+
+.tbl_abajo select {
+    padding: 5px;
+}
+
+/* Seccion Cuatro  */
+.scs_cuatro_arriba {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.scs_cuatro_arriba input {
+    width: 60%;
+}
+
+.total {
+    width: 30%;
+}
+
+.scs_cuatro_abajo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.scs_cuatro_abajo button {
+    color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width:540px) {
+    .scs_cuatro_abajo button {
+        width: 100%;
+    }
+
+    .scs_cuatro_arriba input {
+        width: 100%;
+    }
+
+    .total {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:750px) {
+    .seccion_tres {
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+    }
+
+    .cajas {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .seccion_dos {
+        display: contents;
+    }
+
+}

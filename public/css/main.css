@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+p,a,li,label,input {
+    font-family: 'Work Sans', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+body{
+    background: url(../img/FONDO\ TELA\ BLANCA.png);
+    min-height: 100%;
+}
+
+#main{
+    margin-top: 9vh;
+}
+
+.usuario{
+    text-align: center;
+    background-color: rgba(85, 7, 7, 0);
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+}
+
+.containers{
+    width: 100%;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.usuarios{
+    height: 120px;
+    margin: auto;
+    width: 100%;
+    max-width: 169px;
+    background-color: #27838393;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+img{
+    margin-top: 15px;
+}
+
+.usuarios a {
+    padding: 3em;
+}
+
+@media(max-width: 618px){
+
+    .usuarios{
+        margin-top: 1em;
+        background-color: #27838393;
+        border-radius: 0px;
+        max-width: 100%;
+    }
+
+    .containers{
+        margin-top: 3em;
+        display: inline;
+        width: 100%;
+    }
+
+    .usuarios a {
+        padding-right:40%;
+        padding-left: 40%;
+    }
+}
+
+#btn_cerrar_sesion{
+    position: absolute;
+    bottom: 0%;
+    right: 3vh;
+}
+
+#btn_cerrar_sesion a{
+    text-decoration: none;
+    font-size: 23px;
+    display: flex;
+    align-items: flex-end;
+}
+
+#btn_cerrar_sesion img{
+    margin-left: 1vh;
+}
+
+@media (max-width: 1000px) {
+    #btn_cerrar_sesion{
+        display: none;
+    }
+}

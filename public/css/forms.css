@@ -1,0 +1,81 @@
+
+
+/* registro */
+
+.registrar_usuario{
+    background-color: rgba(112, 102, 102, 0.692);
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 4,5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 ,30);
+    text-align: center;
+}
+
+.form_titulo{
+    font-size: 2em;
+    padding: 20px;
+}
+
+.form_container{
+    margin-top: 1em;
+    display: grid;
+    gap: .5em;
+}
+
+input::placeholder{
+    color: black;
+}
+
+.from_input{
+    width: 90%;
+    background: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid;
+}
+
+.form_submit{
+    background-color: #278787;
+    color: rgb(255, 255, 255);
+    font-weight: 300 bold;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+
+a{
+    text-decoration: none;
+}
+
+select{
+    background:none;
+    width: 93%;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border-radius: .5em;
+    border: black 1px solid;
+}
+
+
+
+/* registro resposive */
+
+@media(max-width: 425px){
+    .form_titulo{
+        font-size: 1.8rem;
+    }
+
+    .registrar_usuario{
+        margin-top: 12.5vh;
+    }
+}
+
+
+

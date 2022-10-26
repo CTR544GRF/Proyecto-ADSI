@@ -1,0 +1,329 @@
+/*
+  Con este reset vamos a resolver:
+    👉 Unificar el uso de Custom Properties
+    👉 Problemas de box-model más generales
+    👉 Problemas con imagenes, vídeos e iconos svg
+    👉 Problemas con tipografías y etiquetas input en formularios
+    👉 Unificar la tipografía de todas las etiquetas de una web
+*/
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: 'Montserrat', sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+    animation: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+body {
+  background: url(../img/FONDO\ TELA\ BLANCA.png);
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+}
+
+
+/* personalisacion web site  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+p,
+a,
+li,
+label,
+input {
+  font-family: 'Work Sans', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+/* Barra de Navegacion */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --verde: #278787;
+}
+
+header {
+  width: 100%;
+  background: var(--verde);
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .btn_menu {
+  display: none;
+}
+
+.btn_menu>div {
+  background: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 5px;
+  transition: all .5s;
+  transform-origin: left;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5vh;
+}
+
+header .svg {
+  width: 3.5em;
+  height: 3.5em;
+}
+
+nav {
+  margin-right: 3%;
+}
+
+header ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header li {
+  list-style: none;
+  /* Quita los puntos de la lista  */
+  margin: 0.5em;
+}
+
+@media screen and (max-width:450px) {
+  header .btn_menu {
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background: transparent;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  header .nav {
+    position: fixed;
+    bottom: 0;
+    top: 100px;
+    right: .1vh;
+    width: 100%;
+    height: 100%;
+    background: #3d7575;
+    transition: transform 0.3s;
+    transform: translateX(-110%);
+  }
+
+  header .nav.activar {
+    transform: translateX(0);
+    display: block;
+  }
+
+  header ul {
+    flex-direction: column;
+  }
+
+  header li {
+    margin: 1rem 0;
+  }
+}
+
+/* Tipo Inputs */
+input {
+  width: 100%;
+  border-bottom: 1.5px solid;
+  padding: 0.6em 0.3em;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+
+select {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8em 0;
+  border-radius: 0.5em;
+  color: black;
+  border: 1px solid #000;
+}
+
+.select_espaciado {
+  margin: 15px;
+}
+
+/* Button */
+.button {
+  background-color: #278787;
+  color: rgb(255, 255, 255);
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.8em 0;
+  border: none;
+  border-radius: 0.5em;
+  width: 30%;
+  cursor: pointer;
+}
+
+.formularios {
+  margin-top: 50px;
+  background: #8886867f;
+  padding: 40px;
+  border-radius: 1em;
+  
+}
+
+/* Btn  Cerrar Sesion */
+.btn_cerrar {
+  display: flex;
+  position: absolute;
+  flex-flow: row nowrap;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.5em;
+  gap: 2px;
+}
+
+.div_cerrar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.div_cerrar :hover {
+  background: #27878759;
+}
+
+.div_cerrar :hover h3,
+.div_cerrar :hover img {
+  background: none;
+}
+
+#myInput{
+  width: 80%;
+}

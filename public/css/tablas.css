@@ -1,0 +1,131 @@
+/*Tabla*/
+
+tr td .a{
+    vertical-align: top;
+    color: white;
+}
+
+.tabla {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.form {
+    display: flex;
+    min-width: 80%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+table{
+    margin: auto;
+    background-color: #03030360;
+    text-align: center;
+    border-collapse: collapse;
+    min-width: 80%;
+    max-width: 870px;
+    margin-top: 3vh;
+}
+
+th,td{
+    padding: 20px;
+    color: white;
+}
+
+thead{
+    background: #3d7575;
+    border-bottom: solid 5px #278787;
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.308);
+}
+
+tr:hover{
+    background-color: #3d75756e;
+}
+
+td:hover{
+    background: #2a50506c;
+}
+
+/*Tabla Responsive*/
+
+@media (max-width: 1000px){
+    table{
+        border: 0px;
+        margin-top: 10vh;
+        width:100%;
+    }
+    thead{
+        display: none;
+    }
+    tr{
+        margin-bottom: 0px;
+        display: block;
+    }
+    td{
+        display: block;
+        text-align: right;
+    }
+    td:before{
+        content: attr(data-label);
+        float: left;
+    }
+}
+
+
+/*Btn_cerrar_sesion*/
+
+#btn_cerrar_sesion{
+    position: absolute;
+    bottom: 0%;
+    right: 3vh;
+}
+
+#btn_cerrar_sesion a{
+    text-decoration: none;
+    font-size: 23px;
+    display: flex;
+    color: black;
+}
+
+#btn_cerrar_sesion img{
+    margin-left: 1vh;
+}
+
+/*Btn_cerrar_sesion responsive*/
+
+@media (max-width: 1000px) {
+    #btn_cerrar_sesion{
+        display: none;
+    }
+}
+
+/*Btn_filtro*/
+
+#btn_filtro{
+    margin-top: 7em;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3vh;
+}
+
+#btn_filtro a{
+    text-decoration: none;
+    font-size: 23px;
+    display: flex;
+}
