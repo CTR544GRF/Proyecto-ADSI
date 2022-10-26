@@ -11,7 +11,7 @@
 
 <body>
     <center>
-        <h1 id="main">Menú</h1>
+        <h1 id="main"></h1>
     </center>
     <div class="usuario">
         <div class="containers">
