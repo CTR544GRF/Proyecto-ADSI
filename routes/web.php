@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\articulos;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::view('/Empresas/editar', 'Empresas.editar_empresa')->name('edit_empresa')
 Route::view('/Articulos/registro', 'Articulos.registrar_articulo')->name('reg_articulo');
 Route::view('/Articulos/ver', 'Articulos.articulos')->name('ver_articulo');
 Route::view('/Articulos/editar', 'Articulos.editar_articulo')->name('edit_articulo');
+// Route::post('/Articulos/registro',articulos::class,'store')->name('post_reg_articulos');
+Route::post('/Articulos/registro', articulos::class . '@store')->name('post_reg_articulos');

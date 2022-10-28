@@ -11,3 +11,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
+
+// Convenciones controlador laravel
+
+// index para mostrar datos
+// store para guardar dato
+// update para actualisar dato
+// destroy para eliminar un dato
+// edit para mostra formulario de edicion
