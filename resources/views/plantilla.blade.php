@@ -13,9 +13,9 @@
 </head>
 <body>
 
-<header>
+    <header>
         <button class="logo">
-            <img height="70vw" src="{{ asset('img\Logo letra blanca.png')}}" alt="logo">
+        <a href="{{ route('main')}}"><img height="70vw" src="{{ asset('img\Logo letra blanca.png')}}" alt="logo"></a>
         </button>
         <button class="btn_menu">
             <div class="btn_first"></div>
@@ -24,23 +24,22 @@
         </button>
         <nav class="nav">
             <ul class="lista">
-                <li><a href="{{ route('main')}}" class="active">Menu</a></li>
+                <li><a href="{{ route('main')}}" class="active">Menú</a></li>
                 <li><a href="@yield('link')" >@yield('palabra-accion')</a></li>
                 <li><a href="@yield('link2')" >@yield('palabra-accion2')</a></li>
             </ul>
         </nav>
-
     </header>
     <main class="">
         <!-- seccion -->
     @yield('seccion')
     <!-- fin seccion -->
-    <div class="div_cerrar">
+        <div class="div_cerrar">
             <a href="login.php" class="btn_cerrar">
                 <h3>Cerrar sesión</h3><img src="{{ asset('img/log-out-regular-24.png')}}" alt="">
             </a>
         </div>
-        </main>
+    </main>
     <script src="@yield('script')"></script>
     <script src="{{ asset('js/main.js')}}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
