@@ -1,7 +1,11 @@
 /*Tabla*/
 
-tr td .a{
+tr td .a {
     vertical-align: top;
+    color: white;
+}
+
+a {
     color: white;
 }
 
@@ -26,10 +30,10 @@ tr td .a{
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-table{
+table {
     margin: auto;
     background-color: #03030360;
     text-align: center;
@@ -39,49 +43,54 @@ table{
     margin-top: 3vh;
 }
 
-th,td{
+th, td {
+    border: 1px solid #dee2e6;
     padding: 20px;
     color: white;
 }
 
-thead{
+thead {
     background: #3d7575;
     border-bottom: solid 5px #278787;
     color: white;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.308);
 }
 
-tr:hover{
+tr:hover {
     background-color: #3d75756e;
 }
 
-td:hover{
+td:hover {
     background: #2a50506c;
 }
 
 /*Tabla Responsive*/
 
-@media (max-width: 1000px){
-    table{
+@media (max-width: 1000px) {
+    table {
         border: 0px;
         margin-top: 10vh;
-        width:100%;
+        width: 100%;
     }
-    thead{
+
+    thead {
         display: none;
     }
-    tr{
+
+    tr {
         margin-bottom: 0px;
         display: block;
     }
-    td{
+
+    td {
         display: block;
         text-align: right;
     }
-    td:before{
+
+    td:before {
         content: attr(data-label);
         float: left;
     }
@@ -90,41 +99,41 @@ td:hover{
 
 /*Btn_cerrar_sesion*/
 
-#btn_cerrar_sesion{
+#btn_cerrar_sesion {
     position: absolute;
     bottom: 0%;
     right: 3vh;
 }
 
-#btn_cerrar_sesion a{
+#btn_cerrar_sesion a {
     text-decoration: none;
     font-size: 23px;
     display: flex;
     color: black;
 }
 
-#btn_cerrar_sesion img{
+#btn_cerrar_sesion img {
     margin-left: 1vh;
 }
 
 /*Btn_cerrar_sesion responsive*/
 
 @media (max-width: 1000px) {
-    #btn_cerrar_sesion{
+    #btn_cerrar_sesion {
         display: none;
     }
 }
 
 /*Btn_filtro*/
 
-#btn_filtro{
+#btn_filtro {
     margin-top: 7em;
     display: flex;
     justify-content: flex-end;
     margin-right: 3vh;
 }
 
-#btn_filtro a{
+#btn_filtro a {
     text-decoration: none;
     font-size: 23px;
     display: flex;

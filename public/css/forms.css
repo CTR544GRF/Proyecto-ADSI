@@ -1,34 +1,32 @@
-
-
 /* registro */
 
-.registrar_usuario{
+.registrar_usuario {
     background-color: rgba(112, 102, 102, 0.692);
     margin: auto;
     width: 100%;
     max-width: 600px;
-    padding: 4,5em 3em;
+    padding: 4, 5em 3em;
     border-radius: 10px;
-    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 ,30);
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0, 30);
     text-align: center;
 }
 
-.form_titulo{
+.form_titulo {
     font-size: 2em;
     padding: 20px;
 }
 
-.form_container{
+.form_container {
     margin-top: 1em;
     display: grid;
     gap: .5em;
 }
 
-input::placeholder{
+input::placeholder {
     color: black;
 }
 
-.from_input{
+.from_input {
     width: 90%;
     background: none;
     color: rgb(0, 0, 0);
@@ -39,7 +37,7 @@ input::placeholder{
     border-bottom: 1.5px solid;
 }
 
-.form_submit{
+.form_submit {
     background-color: #278787;
     color: rgb(255, 255, 255);
     font-weight: 300 bold;
@@ -49,12 +47,12 @@ input::placeholder{
     border-radius: .5em;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-select{
-    background:none;
+select {
+    background: none;
     width: 93%;
     font-weight: 300;
     font-size: 1rem;
@@ -67,15 +65,12 @@ select{
 
 /* registro resposive */
 
-@media(max-width: 425px){
-    .form_titulo{
+@media(max-width: 425px) {
+    .form_titulo {
         font-size: 1.8rem;
     }
 
-    .registrar_usuario{
+    .registrar_usuario {
         margin-top: 12.5vh;
     }
 }
-
-
-
