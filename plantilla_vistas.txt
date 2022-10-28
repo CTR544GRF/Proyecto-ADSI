@@ -1,0 +1,40 @@
+@extends('plantilla')
+
+<!--estilo css -->
+@section('estilos')
+{{asset('css/factura.css')}}
+@stop
+
+<!--link nav -->
+@section('link')
+{{ route('ver_factura')}}
+@stop
+
+<!-- palabra nav -->
+@section('palabra-accion')
+{{'Ver'}}
+@stop
+
+<!--link nav2 -->
+@section('link2')
+{{ route('ver_factura')}}
+@stop
+
+<!-- palabra nav2 -->
+@section('palabra-accion2')
+{{'Ver'}}
+@stop
+
+<!-- Script js -->
+@section('script')
+{{ asset('js/registro_factura.js')}}
+@stop
+
+<!-- Titulo -->
+@section('titulo')
+{{ 'Registrar Factura'}}
+@stop
+
+@section('seccion')
+
+@stop

@@ -54,7 +54,7 @@
                 <td data-label="Color"></td>
                 <td data-label="Descripcion"></td>
                 <td data-label="Editar"><a href="{{route('edit_articulo')}}">Editar</a> </td>
-                <td data-label="Eliminar">Eliminar</td>
+                <td data-label="Eliminar"><a onclick="return confirmdelte()">Eliminar</a></td>
             </tr>
         </tbody>
     </table>
