@@ -16,6 +16,10 @@ h1,h2,h3,h4,h5,h6 {
     color: rgb(0, 0, 0);
 }
 
+h1 {
+  text-align: center;
+}
+
 p,a,li,label,input {
     font-family: 'Work Sans', sans-serif;
     color: rgb(0, 0, 0);

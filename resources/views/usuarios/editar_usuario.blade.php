@@ -1,31 +1,34 @@
 @extends('plantilla')
 
+<!--estilo css -->
 @section('estilos')
-    {{asset('css/registrar.css')}}
+{{asset('css/forms.css')}}
 @stop
 
-@section('link-logo')
-    {{'../'}}
+<!--link nav -->
+@section('link')
+{{ route('reg_usuario')}}
 @stop
 
-@section('img-logo')
-    {{'../../img/Logo letra blanca.png'}}
-@stop
-
-@section('link')    
-    {{'../usuarios'}}
-@stop
-
+<!-- palabra nav -->
 @section('palabra-accion')
-    {{'Ver'}}
+{{'Registrar'}}
 @stop
 
-@section('link2')    
-    {{'../usuarios/registrar'}}
+<!--link nav2 -->
+@section('link2')
+{{ route('ver_usuario')}}
 @stop
 
+<!-- palabra nav2 -->
 @section('palabra-accion2')
-    {{'Registrar'}}
+{{'Ver'}}
+@stop
+
+
+<!-- Titulo -->
+@section('titulo')
+{{ 'Editar usuario'}}
 @stop
 
 @section('seccion')

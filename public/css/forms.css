@@ -1,4 +1,4 @@
-/* registro */
+/* formulario registro - editar */
 
 .registrar_usuario {
     background-color: rgba(112, 102, 102, 0.692);
@@ -63,7 +63,7 @@ select {
 
 
 
-/* registro resposive */
+/* formulario resposive */
 
 @media(max-width: 425px) {
     .form_titulo {

@@ -1,38 +1,27 @@
 @extends('plantilla')
 
+<!--estilo css -->
 @section('estilos')
-    {{asset('css/tabla.css')}}
+{{asset('css/tablas.css')}}
 @stop
 
-@section('link-logo')
-    {{'../main'}}
-@stop
-
-@section('img-logo')
-    {{'../img/Logo letra blanca.png'}}
-@stop
-
+<!--link nav -->
 @section('link')
-    {{'usuarios/registrar'}}
+{{ route('reg_entrada')}}
 @stop
 
+<!-- palabra nav -->
 @section('palabra-accion')
-    {{'registrar'}}
+{{'Registrar'}}
 @stop
 
-@section('link2')    
-    {{''}}
-@stop
 
-@section('palabra-accion2')
-    {{''}}
+<!-- Titulo -->
+@section('titulo')
+{{ 'Entradas'}}
 @stop
 
 @section('seccion')
-            <li><a href="registrar_usuario.php" >Registrar</a></li>
-            </ul>
-        </nav>
-    </header>
 <div class="tabla" >
     <input class="form" id="myInput" type="text" placeholder="Buscar ...">
         <table class="table table-bordered">
@@ -42,7 +31,7 @@
                     <th>Codigo articulo</th>
                     <th>Casual de entrada</th>
                     <th>Numero de factura</th>
-                    <th>cantidad</th>
+                    <th>Cantidad</th>
                 </tr>
             </thead>
             <tbody id="myTable">

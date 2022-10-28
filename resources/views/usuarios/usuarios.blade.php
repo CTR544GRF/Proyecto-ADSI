@@ -1,27 +1,31 @@
 @extends('plantilla')
 
+<!--estilo css -->
 @section('estilos')
-    {{asset('css/tabla.css')}}
+{{asset('css/tablas.css')}}
 @stop
 
+<!--link nav -->
 @section('link')
-    {{'usuarios/registrar'}}
+{{ route('reg_usuario')}}
 @stop
 
+<!-- palabra nav -->
 @section('palabra-accion')
-    {{'registrar'}}
+{{'Registrar'}}
 @stop
 
-@section('link2')    
-    {{''}}
+<!-- Script js -->
+@section('script')
+{{ asset('js/eliminar.js')}}
 @stop
 
-@section('palabra-accion2')
-    {{''}}
+<!-- Titulo -->
+@section('titulo')
+{{ 'Usuarios'}}
 @stop
 
 @section('seccion')
-@stop
     <div class="tabla">
         <input class="form" id="myInput" type="text" placeholder="Buscar ...">
         <table class="table table-bordered">
@@ -47,8 +51,8 @@
                     <td data-label="Direccion" ></td>
                     <td data-label="E-mail" ></td>
                     <td data-label="Rol" ></td>
-                    <td data-label="Editar"><a href="usuarios/editar">Editar</a></td>
-                    <td data-label="Eliminar">Eliminar</td>
+                    <td data-label="Editar"><a href="{{ route('edit_usuario')}}">Editar</a></td>
+                    <td data-label="Eliminar"><a onclick="return confirmdelte()">Eliminar</a></td>
                 </tr>
             <?php
       
