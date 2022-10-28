@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facturacions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('tbl_roles', function (Blueprint $table) {
+            $table->increments('cod_rol', 10);
+            $table->String('nom_rol', 20);
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facturacions');
+        Schema::dropIfExists('tbl_roles');
     }
 };
