@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('nit_empresa', 10);
             $table->String('nom_empresa', 10);
             $table->String('tel_empresa', 20);
-            $table->String('direccion_empresa', 20);
-            $table->String('email_empresa', 5);
+            $table->String('direccion_empresa', 30);
+            $table->String('email_empresa', 20);
             $table->unsignedInteger('id_user');
             $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
         });

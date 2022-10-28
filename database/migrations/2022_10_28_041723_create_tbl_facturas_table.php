@@ -25,9 +25,9 @@ return new class extends Migration
             $table->String('descripcion', 150);
             $table->unsignedInteger('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
-            $table->unsignedInteger('nit_empresa');
+            $table->unsignedInteger('nit_empresa')->nullable();
             $table->foreign('nit_empresa')->references('nit_empresa')->on('tbl_empresas');
-            $table->unsignedInteger('id_user');
+            $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
         });
     }
