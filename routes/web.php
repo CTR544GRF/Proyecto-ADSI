@@ -36,7 +36,6 @@ Route::view('/Articulos/registro', 'Articulos.registrar_articulo')->name('reg_ar
 Route::view('/Articulos/ver', 'Articulos.articulos')->name('ver_articulo');
 Route::view('/Articulos/editar', 'Articulos.editar_articulo')->name('edit_articulo');
 
-
 //vistas Usuarios
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
 Route::view('/Usuarios/ver', 'usuarios.usuarios')->name('ver_usuario');
@@ -53,3 +52,6 @@ Route::view('/Entradas/ver', 'entradas.entradas')->name('ver_entrada');
 // Route::post('/Articulos/registro',articulos::class,'store')->name('post_reg_articulos');
 Route::post('/Articulos/registro', articulos::class . '@store')->name('post_reg_articulos');
 
+
+Route::post('/Articulos/registro', articulos::class, 'store')->name('post_reg_articulos');
+Route::post('/Articulos/registro', articulos::class . '@store')->name('post_reg_articulos');
