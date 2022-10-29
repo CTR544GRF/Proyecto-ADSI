@@ -20,8 +20,9 @@ return new class extends Migration
             $table->String('causal', 20);
             $table->unsignedInteger('num_factura')->nullable();
             $table->foreign('num_factura')->references('num_factura')->on('tbl_facturas');
-            $table->unsignedInteger('cod_articulo')->nullable();
+            $table->unsignedInteger('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
+            $table->timestamps();
         });
     }
 

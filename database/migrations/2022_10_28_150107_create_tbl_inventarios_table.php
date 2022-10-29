@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('cod_registro')->references('cod_registro')->on('tbl_registros');
             $table->unsignedInteger('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
+            $table->timestamps();
         });
     }
 

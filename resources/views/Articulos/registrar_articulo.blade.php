@@ -20,13 +20,10 @@
 
 @section('seccion')
 
-<form class="registrar_usuario" action="{{route('post_reg_articulos')}}" method="POST" enctype="multipart/form-data" >
-@csrf
+<form class="registrar_usuario" action="{{route('post_reg_articulos')}}" method="POST" enctype="multipart/form-data">
+    @csrf
     <div class="form_container">
         <h2 class="form_titulo">Registrar articulo</h2>
-        <!-- <div class="from_group">
-            <input type="text" id="Codigo articulo" class="from_input" placeholder="Codigo articulo" name="cod_articulo">
-        </div> -->
         <div class="from_group">
             <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
         </div>

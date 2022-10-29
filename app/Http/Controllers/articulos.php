@@ -11,14 +11,14 @@ class articulos extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tipo'=>'required|max:10',
-            'nombre'=>'required|max:20',
-            'material'=>'required|max:20',
-            'talla'=>'required|max:10',
-            'linea'=>'required|max:10',
-            'uMedida'=>'required|max:10',
-            'color'=>'required|max:10',
-            'descripcion'=>'required|max:150'
+            'tipo' => 'required|max:10',
+            'nombre' => 'required|max:20',
+            'material' => 'required|max:20',
+            'talla' => 'required|max:10',
+            'linea' => 'required|max:10',
+            'uMedida' => 'required|max:10',
+            'color' => 'required|max:10',
+            'descripcion' => 'required|max:150'
         ]);
 
         $articulos = new tbl_articulos;

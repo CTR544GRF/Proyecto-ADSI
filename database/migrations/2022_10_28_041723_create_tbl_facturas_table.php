@@ -29,6 +29,7 @@ return new class extends Migration
             $table->foreign('nit_empresa')->references('nit_empresa')->on('tbl_empresas');
             $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
+            $table->timestamps();
         });
     }
 
