@@ -35,7 +35,6 @@ Route::view('/Empresas/editar', 'Empresas.editar_empresa')->name('edit_empresa')
 Route::view('/Articulos/registro', 'Articulos.registrar_articulo')->name('reg_articulo');
 Route::view('/Articulos/ver', 'Articulos.articulos')->name('ver_articulo');
 Route::view('/Articulos/editar', 'Articulos.editar_articulo')->name('edit_articulo');
-<<<<<<< HEAD
 
 //vistas Usuarios
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
@@ -49,7 +48,6 @@ Route::view('/Salidas/ver', 'salidas.salidas')->name('ver_salida');
 //vistas Entradas
 Route::view('/Entradas/registro', 'entradas.registrar_entrada')->name('reg_entrada');
 Route::view('/Entradas/ver', 'entradas.entradas')->name('ver_entrada');
-=======
-// Route::post('/Articulos/registro',articulos::class,'store')->name('post_reg_articulos');
+
+Route::post('/Articulos/registro', articulos::class, 'store')->name('post_reg_articulos');
 Route::post('/Articulos/registro', articulos::class . '@store')->name('post_reg_articulos');
->>>>>>> 7bc368d1876b0bf7dc3e170dd5339d596e5822e7
