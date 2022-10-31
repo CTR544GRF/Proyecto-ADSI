@@ -22,39 +22,44 @@
 @stop
 
 @section('seccion')
-    <div class="tabla" >
-        <input class="form" id="myInput" type="text" placeholder="Buscar ...">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Codigo salida</th>
-                    <th>Codigo articulo</th>
-                    <th>Casual de salida</th>
-                    <th>Numero de factura</th>
-                    <th>Cantidad</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="myTable">
-                <tr>
-                    <td data-label="codigoS" ></td>
-                    <td data-label="codigoA" ></td>
-                    <td data-label="causal" ></td>
-                    <td data-label="numeroF" ></td>
-                    <td data-label="cantidad" ></td>
-                </tr>
-            </tbody>
-        </table>
-        <script>
-        $(document).ready(function(){
-         $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-         $("#myTable tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-             });
+<div class="tabla" >
+    <input class="form" id="myInput" type="text" placeholder="Buscar ...">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo registro</th>
+                <th>Tipo registro</th>
+                <th>Codigo articulo</th>
+                <th>Casual de salida</th>
+                <th>Numero de factura</th>
+                <th>Cantidad</th>
+                
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        @foreach ($salidass as $salida)
+            <tr>
+                <td data-label="codigoS" >{{$salida->cod_registro}}</td>
+                <td data-label="codigoA" >{{$salida->cod_articulo}}</td>
+                <td data-label="causal" >{{$salida->causal_salida}}</td>
+                <td data-label="numeroF" >{{$salida->num_factura}}</td>
+                <td data-label="cantidad" >{{$salida->cantidad}}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-        </script>
-    </div>
+    });
+    </script>
+</div>
+
+
 @stop
 
