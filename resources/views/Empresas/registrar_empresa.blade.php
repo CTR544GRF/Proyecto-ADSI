@@ -21,9 +21,9 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="" method="POST" enctype="multipart/form-data">
-@csrf     
-<div class="form_container">
+<form class="registrar_usuario" action="{{route('post_reg_empresa')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form_container">
         <h2 class="form_titulo">Registrar empresa</h2>
         <!-- <div class="from_group">
             <input type="text" name="nit" class="from_input" placeholder="Nit" required>
@@ -40,17 +40,29 @@
         <div class="from_group">
             <input type="email" name="e_mail" class="from_input" placeholder="E-mail" required>
         </div>
+
+
         <div class="from_group">
-            <select name="cod_ciudad" id="">
-                <option value="1">Seleccion una ciudad</option>
-            </select>
-        </div>
-        <div class="from_group">
-        <select name="id_user" id="">
-                <option value="1">Seleccion un usuario</option>
+            <select name="id_user" class="from_group">
+                <option value=" 1">Seleccion un usuario </option>
             </select>
         </div>
         <button name="registrar" type="submit" class="form_submit"><strong>Registrar empresa</strong></button>
     </div>
 </form>
+
+@if (session('guardado'))
+<script>
+    guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

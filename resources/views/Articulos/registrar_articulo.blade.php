@@ -22,10 +22,13 @@
 
 <form class="registrar_usuario" action="{{route('post_reg_articulos')}}" method="POST" enctype="multipart/form-data">
     @csrf
+
     <div class="form_container">
         <h2 class="form_titulo">Registrar articulo</h2>
         <div class="from_group">
-            <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
+            <label>Tipo articulo
+                <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
+            </label>
         </div>
         <div class="from_group">
             <input type="text" id="Nombre" class="from_input" placeholder="Nombre" name="nombre">
@@ -51,5 +54,18 @@
         <button type="submit" class="form_submit" name="registrarArt">Registrar Articulo</button>
     </div>
 </form>
+@if (session('guardado'))
+<script>
+    guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
 
 @stop

@@ -12,17 +12,22 @@ class empresas extends Controller
     {
         $request->validate([
             'nombre' => 'required|max:20',
-            'telefono' => 'required|max:10|integer',
+            'telefono' => 'required|digits_between:5,10|integer',
             'direccion' => 'required|max:20',
-            'email' => 'required|max:10|email',
+            'e_mail' => 'required|max:30|email',
         ]);
         $empresas = new tbl_empresas();
-        $empresas->nom_empresa = $request->tipo;
-        $empresas->tel_empresa = $request->nombre;
-        $empresas->direccion_empresa = $request->material;
-        $empresas->email_empresa = $request->email;
-        $empresas->id_user = $request->user;
+        $empresas->nom_empresa = $request->nombre;
+        $empresas->tel_empresa = $request->telefono;
+        $empresas->direccion_empresa = $request->direccion;
+        $empresas->email_empresa = $request->e_mail;
+        $empresas->id_user = $request->id_user;
         $empresas->save();
-        return redirect()->route('reg_articulo');
+        return redirect()->route('reg_empresa')->with('guardado', 'La Empresa a sido guardada con exito');;
+    }
+    public function index()
+    {
+        $empresas_view = tbl_empresas::all();
+        return view('Empresas.empresas', compact('empresas_view'));
     }
 }

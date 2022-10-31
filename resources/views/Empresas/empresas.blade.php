@@ -43,16 +43,38 @@
             </tr>
         </thead>
         <tbody id="myTable">
+            @foreach ($empresas_view as $empresa)
             <tr>
-                <td data-label="Nit"></td>
-                <td data-label="Nombre"></td>
-                <td data-label="Teléfono"></td>
-                <td data-label="Dirección"></td>
-                <td data-label="E-mail"></td>
-                <td data-label="Id User"></td>
-                <td data-label="Editar"><a href="{{route('edit_empresa')}}">Editar</a> </td>
-                <td data-label="Eliminar"><a onclick="return confirmdelte()">Eliminar</a></td>
+                <td data-label="Nit">
+                    {{$empresa->nit_empresa}}
+                </td>
+                <td data-label="Nombre">
+                    {{$empresa->nom_empresa}}
+                </td>
+                <td data-label="Teléfono">
+                    {{$empresa->tel_empresa}}
+                </td>
+                <td data-label="Dirección">
+                    {{$empresa->direccion_empresa}}
+                </td>
+                <td data-label="E-mail">
+                    {{$empresa->email_empresa}}
+                </td>
+                <td data-label="Id User">
+                    {{$empresa->id_user}}
+                </td>
+                <td data-label="Editar"><a href="{{ route('edit_empresa', $articulo ) }}">Editar</a> </td>
+                <form action="{{route('delete_articulo',$articulo)}}" method="post" class="eliminar_datos">
+                    @csrf
+                    @method('delete')
+                    <td class="eliminartd" data-label="">
+                        <button class="btn_eliminar" type="submit">
+                            Eliminar
+                        </button>
+                    </td>
+                </form>
             </tr>
+            @endforeach
         </tbody>
     </table>
     <script>

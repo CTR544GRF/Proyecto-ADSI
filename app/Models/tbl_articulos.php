@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class tbl_articulos extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'cod_articulo';
 }

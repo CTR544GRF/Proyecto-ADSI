@@ -11,6 +11,11 @@
     text-align: center;
 }
 
+.from_group {
+    display: flex;
+    justify-content: center;
+}
+
 .form_titulo {
     font-size: 2em;
     padding: 20px;

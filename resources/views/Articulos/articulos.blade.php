@@ -13,10 +13,7 @@
 @section('palabra-accion')
 {{'Registrar'}}
 @stop
-<!-- Script js -->
-@section('script')
-{{ asset('js/eliminar.js')}}
-@stop
+
 <!-- Titulo -->
 @section('titulo')
 {{ 'Articulos'}}
@@ -43,19 +40,47 @@
             </tr>
         </thead>
         <tbody id="myTable">
+            @foreach ($articulos_view as $articulo )
             <tr>
-                <td data-label="Codigo articulo"></td>
-                <td data-label="Tipo articulo"></td>
-                <td data-label="Nombre"></td>
-                <td data-label="Material"></td>
-                <td data-label="Talla"></td>
-                <td data-label="Linea"></td>
-                <td data-label="Unidad de medida"></td>
-                <td data-label="Color"></td>
-                <td data-label="Descripcion"></td>
-                <td data-label="Editar"><a href="{{route('edit_articulo')}}">Editar</a> </td>
-                <td data-label="Eliminar"><a onclick="return confirmdelte()">Eliminar</a></td>
+                <td data-label="Codigo articulo">
+                    {{$articulo->cod_articulo}}
+                </td>
+                <td data-label="Tipo articulo">
+                    {{$articulo->tipo_articulo}}
+                </td>
+                <td data-label="Nombre">
+                    {{$articulo->nom_articulo}}
+                </td>
+                <td data-label="Material">
+                    {{$articulo->material_articulo}}
+                </td>
+                <td data-label="Talla">
+                    {{$articulo->talla_articulo}}
+                </td>
+                <td data-label="Linea">
+                    {{$articulo->linea}}
+                </td>
+                <td data-label="Unidad de medida">
+                    {{$articulo->unidad_medida}}
+                </td>
+                <td data-label="Color">
+                    {{$articulo->color_articulo}}
+                </td>
+                <td data-label="Descripcion">
+                    {{$articulo->descripcion_articulo}}
+                </td>
+                <td data-label="Editar"><a href="{{ route('edit_articulo', $articulo ) }}">Editar</a> </td>
+                <form action="{{route('delete_articulo',$articulo)}}" method="post" class="eliminar_datos">
+                    @csrf
+                    @method('delete')
+                    <td class="eliminartd" data-label="">
+                        <button class="btn_eliminar" type="submit">
+                            Eliminar
+                        </button>
+                    </td>
+                </form>
             </tr>
+            @endforeach
         </tbody>
     </table>
     <script>
@@ -69,4 +94,23 @@
         });
     </script>
 </div>
+<!-- Script js -->
+@section('script')
+{{ asset('js/eliminar.js')}}
+@stop
+<!-- Mesajes de confirmacion y error -->
+@if (session('destroy'))
+<script>
+    guardado('Eliminacion Exitosa', '<?php echo session('destroy') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

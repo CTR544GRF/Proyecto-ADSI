@@ -138,3 +138,8 @@ td:hover {
     font-size: 23px;
     display: flex;
 }
+
+.btn_eliminar {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
