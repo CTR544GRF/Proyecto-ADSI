@@ -42,21 +42,24 @@
             </tr>
         </thead>
         <tbody id="myTable">
+            @foreach ($facturas_view as $factura)
             <tr>
-                <td data-label="Nu.factura"></td>
-                <td data-label="Fecha"></td>
-                <td data-label="Tipo de factura"></td>
-                <td data-label="Valor unitario"></td>
-                <td data-label="cantidad"></td>
-                <td data-label="iva"></td>
-                <td data-label="Sub total"></td>
-                <td data-label="Total"></td>
-                <td data-label="Descripción"></td>
-                <td data-label="Codigo articulo"></td>
-                <td data-label="Nit"></td>
-                <td data-label="Id usuario"></td>
-                <td data-label="Editar"><a href="{{route('edit_factura')}}">Editar</a> </td>
+                <td data-label="Nu.factura">{{ $factura->num_factura }}</td>
+                <td data-label="Fecha">{{ $factura->fecha }}</td>
+                <td data-label="Tipo de factura">{{ $factura->tipo_factura }}</td>
+                <td data-label="Valor unitario">{{ $factura->valor_unitario }}</td>
+                <td data-label="cantidad">{{ $factura->cantidad }}</td>
+                <td data-label="Sub total">{{ $factura->sub_total }}</td>
+                <td data-label="iva">{{ $factura->iva }}</td>
+                <td data-label="Total">{{ $factura->total }}</td>
+                <td data-label="Descripción">{{ $factura->descripcion }}</td>
+                <td data-label="Codigo articulo">{{ $factura->cod_articulo }}</td>
+                <td data-label="Nit">{{ $factura->nit_empresa }}</td>
+                <td data-label="Id usuario">{{ $factura->id_user }}</td>
+                <td data-label="Editar"><a href=" route('edit_factura', $factura)">Editar</a> </td>
+                
             </tr>
+            @endforeach
         </tbody>
     </table>
     <script>

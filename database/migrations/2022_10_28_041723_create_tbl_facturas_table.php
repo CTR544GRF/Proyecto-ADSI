@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_facturas', function (Blueprint $table) {
-            $table->increments('num_factura', 10);
+            $table->integer('num_factura',10);
             $table->date('fecha');
             $table->String('tipo_factura', 20);
             $table->float('valor_unitario');
@@ -23,11 +23,11 @@ return new class extends Migration
             $table->float('iva');
             $table->float('total');
             $table->String('descripcion', 150);
-            $table->unsignedInteger('cod_articulo');
+            $table->integer('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
-            $table->unsignedInteger('nit_empresa')->nullable();
+            $table->integer('nit_empresa')->nullable();
             $table->foreign('nit_empresa')->references('nit_empresa')->on('tbl_empresas');
-            $table->unsignedInteger('id_user')->nullable();
+            $table->integer('id_user')->nullable();
             $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
             $table->timestamps();
         });

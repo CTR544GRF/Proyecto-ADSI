@@ -17,9 +17,9 @@ return new class extends Migration
             $table->Integer('Entradas');
             $table->Integer('Salidas');
             $table->float('Existencias');
-            $table->unsignedInteger('cod_registro');
+            $table->integer('cod_registro');
             $table->foreign('cod_registro')->references('cod_registro')->on('tbl_registros');
-            $table->unsignedInteger('cod_articulo');
+            $table->integer('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
             $table->timestamps();
         });

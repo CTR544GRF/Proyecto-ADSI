@@ -15,11 +15,6 @@
 {{'Registar'}}
 @stop
 
-<!-- Script js -->
-@section('script')
-{{ asset('js/eliminar.js')}}
-@stop
-
 <!-- Titulo -->
 @section('titulo')
 {{ 'Empresas'}}
@@ -63,8 +58,8 @@
                 <td data-label="Id User">
                     {{$empresa->id_user}}
                 </td>
-                <td data-label="Editar"><a href="{{ route('edit_empresa', $articulo ) }}">Editar</a> </td>
-                <form action="{{route('delete_articulo',$articulo)}}" method="post" class="eliminar_datos">
+                <td data-label="Editar"><a href="{{ route('edit_empresa', $empresa ) }}">Editar</a> </td>
+                <form action="{{route('delete_empresa',$empresa)}}" method="post" class="eliminar_datos">
                     @csrf
                     @method('delete')
                     <td class="eliminartd" data-label="">
@@ -88,4 +83,24 @@
         });
     </script>
 </div>
+
+<!-- Script js -->
+@section('script')
+{{ asset('js/eliminar.js')}}
+@stop
+<!-- Mesajes de confirmacion y error -->
+@if (session('destroy'))
+<script>
+    guardado('Eliminacion Exitosa', '<?php echo session('destroy') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

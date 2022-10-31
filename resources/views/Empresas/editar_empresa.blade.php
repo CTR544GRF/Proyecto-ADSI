@@ -27,29 +27,30 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="script/update_empresas.php" method="POST">
+<form class="registrar_usuario" action="route('update_empresa')" method="POST">
+@csrf 
+@method('PATCH')    
     <div class="form_container">
         <h2 class="form_titulo">Editar empresa</h2>
         <div class="from_group">
-            <input type="hidden" name="nit" class="from_input" placeholder="Nit">
+            <input type="text" name="nombre" class="from_input" value="{{$empresa->nom_empresa}}">
         </div>
         <div class="from_group">
-            <input type="text" name="nombre" class="from_input" placeholder="Nombre">
+            <input type="text" name="telefono" class="from_input" value="{{$empresa->tel_empresa}}">
         </div>
         <div class="from_group">
-            <input type="text" name="telefono" class="from_input" placeholder="Teléfono">
+            <input type="text" name="direccion" class="from_input" value="{{$empresa->direccion_empresa}}">
         </div>
         <div class="from_group">
-            <input type="text" name="direccion" class="from_input" placeholder="Direccion">
+            <input type="email" name="e_mail" class="from_input" value="{{$empresa->email_empresa}}">
         </div>
         <div class="from_group">
-            <input type="email" name="e_mail" class="from_input" placeholder="E-mail">
-        </div>
-        <div class="from_group">
-            <input type="text" name="id_usuario" class="from_input" placeholder="Id - Usuario">
-        </div>
-        <div class="from_group">
-            <input type="number" name="cod_ciudad" class="from_input" placeholder="Cod cod_ciudad">
+            <select name="id_user" class="from_group">
+                <option value="{{$empresa->id_usuer}}">{{$empresa->id_user}}</option>
+                @foreach ($usuarios_view as $user)
+                <option value="{{$user->id_user}}">{{$user->id_user }} - {{$user->nom_user}} - {{$user->apellidos_user}}</option>
+                @endforeach
+            </select>
         </div>
         <button name="registrar" type="submit" class="form_submit"><strong>Editar empresa</strong></button>
     </div>

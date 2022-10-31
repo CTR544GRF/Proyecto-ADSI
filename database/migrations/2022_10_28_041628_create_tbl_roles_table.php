@@ -14,7 +14,7 @@
         public function up()
         {
             Schema::create('tbl_roles', function (Blueprint $table) {
-                $table->increments('cod_rol', 10);
+                $table->integer('cod_rol',10);
                 $table->String('nom_rol', 20);
                 $table->timestamps();
             });

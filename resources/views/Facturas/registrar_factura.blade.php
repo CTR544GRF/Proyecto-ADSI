@@ -24,7 +24,7 @@
 
 @section('seccion')
 <main class="formularios">
-    <form action="registrar_factura.php" method="POST" enctype="multipart/form-data">
+    <form action="{{route('post_reg_factura')}}" method="POST" enctype="multipart/form-data">
         <section class="seccion_uno">
             <button class="crear_factura" type="reset">
                 <svg class="svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
@@ -66,7 +66,9 @@
                 <h4>Fecha</h4>
                 <input type="date" name="fecha" id="fecha_factura" placeholder="Fecha" required>
                 <h4>Id Usuario</h4>
-                <input type="text" placeholder="Id Usuario" name="id_user" required>
+                <select name="id_user" id="id_user" required>
+                        <option value="Cod">Registrar Producto</option>
+                    </select>
             </div>
         </section>
         <section class="seccion_tres">

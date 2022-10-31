@@ -14,8 +14,8 @@ class articulos extends Controller
             'tipo' => 'required|min:4|max:10|alpha',
             'nombre' => 'required|min:4|max:20|alpha',
             'material' => 'required|min:4|max:20|alpha',
-            'talla' => 'required|max:10',
-            'linea' => 'required|min:4|max:10|alpha',
+            'talla' => 'required|max:20',
+            'linea' => 'required|min:3|max:10|string',
             'uMedida' => 'required|min:4|max:10|alpha',
             'color' => 'required|min:4|max:10|alpha',
             'descripcion' => 'max:150|string'
@@ -52,7 +52,7 @@ class articulos extends Controller
             'nombre' => 'required|max:20|alpha',
             'material' => 'required|max:20|alpha',
             'talla' => 'required|max:10',
-            'linea' => 'required|max:10|alpha',
+            'linea' => 'required|min:3|max:10|string',
             'uMedida' => 'required|max:10|alpha',
             'color' => 'required|max:10|alpha',
             'descripcion' => 'max:150|string'

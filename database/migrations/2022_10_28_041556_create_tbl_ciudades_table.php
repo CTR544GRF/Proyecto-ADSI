@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_ciudades', function (Blueprint $table) {
-            $table->increments('cod_ciudad', 10);
+            $table->integer('cod_ciudad',10);
             $table->String('nom_ciudad', 20);
             $table->timestamps();
         });

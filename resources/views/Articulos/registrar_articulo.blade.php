@@ -26,9 +26,7 @@
     <div class="form_container">
         <h2 class="form_titulo">Registrar articulo</h2>
         <div class="from_group">
-            <label>Tipo articulo
-                <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
-            </label>
+            <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
         </div>
         <div class="from_group">
             <input type="text" id="Nombre" class="from_input" placeholder="Nombre" name="nombre">

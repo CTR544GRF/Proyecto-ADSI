@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\articulos;
 use App\Http\Controllers\usuarios;
 use App\Http\Controllers\empresas;
+use App\Http\Controllers\facturas;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +26,20 @@ use App\Http\Controllers\empresas;
 Route::view('/', 'main')->name('main');
 //vistas Facturas
 Route::view('/Facturas/registro', 'Facturas.registrar_factura')->name('reg_factura');
-Route::view('/Facturas/ver', 'Facturas.facturas')->name('ver_factura');
-Route::view('/Facturas/editar', 'Facturas.editar_factura')->name('edit_factura');
+Route::post('/Facturas/registro', facturas::class . '@store')->name('post_reg_factura');
+Route::get('/Facturas/ver', facturas::class . '@index')->name('ver_factura');
+Route::get('/Facturas/{factura}/editar', facturas::class . '@edit')->name('edit_factura');
+// Route::patch('/Facturas/{factura}', facturas::class . '@update')->name('update_factura');
 
 //vistas Empresas
 Route::view('/Empresas/registro', 'Empresas.registrar_empresa')->name('reg_empresa');
 Route::post('/Empresas/registro', empresas::class . '@store')->name('post_reg_empresa');
 Route::get('/Empresas/ver', empresas::class . '@index')->name('ver_empresa');
-Route::get('/Empresas/{empresa}/editar', empresas::class . '@edit')->name('edit_empresa');
-// Route::patch('/Empresas/{empresa}', empresas::class . '@update')->name('update_empresa');
-// Route::delete('/Empresas/{empresa}', empresas::class . '@destroy')->name('delete_empresa');
+Route::get('/Empresas/registro', empresas::class . '@index2')->name('reg_empresa');
+Route::get('/Empresas/editar/{empresa}', empresas::class . '@edit')->name('edit_empresa');
+Route::get('/Empresas/editar{usuarios_view}', empresas::class . '@index3')->name('edit_empresa');
+Route::patch('/Empresas/{empresa}', empresas::class . '@update')->name('update_empresa');
+Route::delete('/Empresas/{empresa}', empresas::class . '@destroy')->name('delete_empresa');
 
 
 //vistas Articulos

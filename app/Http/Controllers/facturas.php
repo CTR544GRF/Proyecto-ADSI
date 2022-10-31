@@ -32,4 +32,13 @@ class facturas extends Controller
         $facturas->save();
         return redirect()->route('reg_articulo');
     }
+
+    public function index(){
+        $facturas_view = tbl_facturas::all();
+        return view('Facturas.facturas',compact('facturas_view'));
+    }
+    public function edit(tbl_facturas $factura)
+    {
+        return view('Facturas.editar_factura', compact('factura'));
+    }
 }
