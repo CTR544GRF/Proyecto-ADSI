@@ -35,7 +35,7 @@
 
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('regusuario')}}" method="POST">
+<form class="registrar_usuario" action="{{route('post_reg_usuario')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h2 class="form_titulo">Registrar Usuarios</h2>
     <div class="form_container">
@@ -64,7 +64,7 @@
             <input type="date" id="fecha" class="from_input" placeholder="Fecha de ingreso" name="fecha" required>
         </div>
         <div class="from_group">
-            <select name="rol" id="rol" required>
+            <select name="rol" id="rol" required >
                 <option selected>Rol</option>
                 <option value="2">Contador</option>
                 <option value="3">Cliente</option>
@@ -75,4 +75,20 @@
         <button class="form_submit" type='submit'> Registrar </button>
     </div>
 </form>
+@if (session('guardado'))
+<script>
+    guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+
+@endif
+
+
 @stop

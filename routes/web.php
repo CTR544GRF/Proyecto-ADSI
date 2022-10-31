@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\articulos;
 use App\Http\Controllers\usuarios;
 use App\Http\Controllers\empresas;
+<<<<<<< HEAD
 use App\Http\Controllers\facturas;
+=======
+use App\Http\Controllers\entradas;
+use App\Http\Controllers\salidas;
+>>>>>>> f481ebd01e8c6abfe625f233f6558dc5e9d2182b
 
 /*
 |--------------------------------------------------------------------------
@@ -52,16 +57,18 @@ Route::delete('/Articulos/{articulo}', articulos::class . '@destroy')->name('del
 
 //vistas Usuarios
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
-Route::view('/Usuarios/ver', 'usuarios.usuarios')->name('ver_usuario');
-Route::view('/Usuarios/editar', 'usuarios.editar_usuario')->name('edit_usuario');
-Route::post('/store', [usuarios::class, 'store'])->name('regusuario');
-Route::view('/prueba', 'usuarios.prueba')->name('prueba.store');
+Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_usuario');
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
+Route::get('/Usuarios/{usuario}/editar', [usuarios::class, 'edit'])->name('edit_usuario');
+Route::patch('/Usuarios/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
+Route::delete('/Usuarios/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
 
 //vistas Salidas
 Route::view('/Salidas/registro', 'salidas.registrar_salida')->name('reg_salida');
-Route::view('/Salidas/ver', 'salidas.salidas')->name('ver_salida');
+Route::post('/Salidas/registro', [salidas::class, 'store'])->name('post_reg_salida');
+Route::get('/Salidas/ver', [salidas::class, 'index'])->name('ver_salida');
 
 //vistas Entradas
 Route::view('/Entradas/registro', 'entradas.registrar_entrada')->name('reg_entrada');
-Route::view('/Entradas/ver', 'entradas.entradas')->name('ver_entrada');
+Route::post('/Entradas/registro', [entradas::class, 'store'])->name('post_reg_entrada');
+Route::get('/Entradas/ver', [entradas::class, 'index'])->name('ver_entrada');
