@@ -43,20 +43,19 @@
                 </tr>
             </thead>
             <tbody id="myTable">
+                @foreach ($usuarios as $item)
                 <tr>
-                    <td data-label="Id" ></td>
-                    <td data-label="Nombre" ></td>
-                    <td data-label="Apellido" ></td>
-                    <td data-label="Telefono" ></td>
-                    <td data-label="Direccion" ></td>
-                    <td data-label="E-mail" ></td>
-                    <td data-label="Rol" ></td>
+                    <td data-label="Id" >{{$item->id_user}}</td>
+                    <td data-label="Nombre" >{{$item->nom_user}}</td>
+                    <td data-label="Apellido" >{{$item->apellidos_user}}</td>
+                    <td data-label="Telefono" >{{$item->telefono_user}}</td>
+                    <td data-label="Direccion" >{{$item->direccion_user}}</td>
+                    <td data-label="E-mail" >{{$item->email_user}}</td>
+                    <td data-label="Rol" >{{$item->cod_rol}}</td>
                     <td data-label="Editar"><a href="{{ route('edit_usuario')}}">Editar</a></td>
                     <td data-label="Eliminar"><a onclick="return confirmdelte()">Eliminar</a></td>
                 </tr>
-            <?php
-      
-            ?>
+                @endforeach
             </tbody>
         </table>
         <script>

@@ -35,17 +35,18 @@
 
 
 @section('seccion')
-<form class="registrar_usuario">
+<form class="registrar_usuario" action="{{route('regusuario')}}" method="POST">
+    @csrf
     <h2 class="form_titulo">Registrar Usuarios</h2>
     <div class="form_container">
         <div class="from_group">
-            <input type="text" id="ID" class="from_input" placeholder="Id" name="id" required maxlength="10">
+            <input type="text" id="id" class="from_input" placeholder="Id" name="id" required >
         </div>
         <div class="from_group">
-            <input type="text" id="nombre" class="from_input" placeholder="Nombre" name="nombre" required pattern="^[A-Za-z ]+" maxlength="25">
+            <input type="text" id="nombres" class="from_input" placeholder="Nombres" name="nombres" required pattern="^[A-Za-z ]+" maxlength="25">
         </div>
         <div class="from_group">
-            <input type="text" id="apellido" class="from_input" placeholder="Apellido" name="apellido" required maxlength="25" pattern="^[A-Za-z ]+">
+            <input type="text" id="apellidos" class="from_input" placeholder="Apellidos" name="apellidos" required maxlength="25" pattern="^[A-Za-z ]+">
         </div>
         <div class="from_group">
             <input type="text" id="telefono" class="from_input" placeholder="Teléfono" name="telefono" required maxlength="10" minlength="10" pattern="^[0-9]+">
@@ -57,10 +58,10 @@
             <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6">
         </div>
         <div class="from_group">
-            <input type="email" id="e_mail" class="from_input" placeholder="E-mail" name="email" required>
+            <input type="email" id="email" class="from_input" placeholder="E-mail" name="email" required>
         </div>
         <div class="from_group">
-            <input type="date" id="fecha_ingreso" class="from_input" placeholder="Fecha de ingreso" name="fech_ingreso" required>
+            <input type="date" id="fecha" class="from_input" placeholder="Fecha de ingreso" name="fecha" required>
         </div>
         <div class="from_group">
             <select name="rol" id="rol" required>
@@ -71,7 +72,7 @@
                 <option value="5">Almacenista</option>
             </select>
         </div>
-        <a href="main"><input value="Registrar" class="form_submit" name='submit'></a>
+        <button class="form_submit" type='submit'> Registrar </button>
     </div>
 </form>
 @stop

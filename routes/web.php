@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\articulos;
+use App\Http\Controllers\usuarios;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,9 @@ Route::post('/Articulos/registro', articulos::class . '@store')->name('post_reg_
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
 Route::view('/Usuarios/ver', 'usuarios.usuarios')->name('ver_usuario');
 Route::view('/Usuarios/editar', 'usuarios.editar_usuario')->name('edit_usuario');
+Route::post('/store', [usuarios::class, 'store'])->name('regusuario');
+Route::view('/prueba','usuarios.prueba')->name('prueba.store');
+Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
 
 //vistas Salidas
 Route::view('/Salidas/registro', 'salidas.registrar_salida')->name('reg_salida');
