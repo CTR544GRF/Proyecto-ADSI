@@ -37,7 +37,9 @@
 
 @section('seccion')
 <main class="formularios">
-    <form action="script/update_facturacion.php" method="POST" enctype="multipart/form-data">
+    <form action="{{route('update_factura', $factura)}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
         <section class="seccion_uno">
             <button class="crear_factura" type="reset">
                 <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
@@ -65,20 +67,31 @@
         <section class="seccion_dos">
             <div id="seccion_two_left">
                 <h3>Codigo de Factura</h3>
-                <input type="text" placeholder="Nu. Factura" name="num_factura" id="num_factura" value="" required>
+                <input type="text" placeholder="Nu. Factura" name="num_factura" id="num_factura" value="{{$factura->num_factura}}" required>
                 <h4>Tipo de Factura</h4>
                 <select name="tipo_factura" id="Tipo_Factura" required>
+                    <option value='0'> {{$factura->tipo_factura}}</option>
                     <option value='venta'>Factura de Venta</option>
                     <option value='compra'>Factura de Compra</option>
                 </select>
                 <h4>Nit de Empresa</h4>
-                <input type="text" placeholder="Nit de Empresa" name="nit_empresa" value="" required>
+                    <select name="nit_empresa" id="" required>
+                        <option value="{{$factura->nit_empresa}}">{{$factura->nit_empresa}}</option>
+                        @foreach ($empresas_view as $empresa )                            
+                            <option value="{{$empresa->nit_empresa}}"> {{$empresa->nit_empresa}} - {{$empresa->nom_empresa}} </option>
+                        @endforeach
+                    </select>
             </div>
             <div id="seccion_two_rigth">
                 <h4>Fecha</h4>
-                <input type="date" name="fecha" id="fecha_factura" placeholder="Fecha" value="" required>
+                <input type="date" name="fecha" id="fecha_factura" placeholder="Fecha" value="{{$factura->fecha}}" required>
                 <h4>Id Usuario</h4>
-                <input type="text" placeholder="Id Usuario" value="" name="id_user" required>
+                    <select name="id_user" id="id_user" required>
+                        <option value="{{$factura->id_user}}">{{$factura->id_user}}</option>
+                        @foreach ($usuarios_view as $usuario)
+                            <option value="{{$usuario->id_user}}">{{$usuario->id_user}} - {{$usuario->nom_user}}</option>
+                        @endforeach
+                    </select>
             </div>
         </section>
         <section class="seccion_tres">
@@ -91,9 +104,12 @@
             <div class="cajas">
                 <h3>Cod Articulo</h3>
                 <div class="tbl_abajo">
-                    <select name="cod_articulo" id="cod_articulo" required>
-                        <option value=""></option>
-                    </select>
+                        <select name="cod_articulo" id="cod_articulo" required>
+                            <option value="0">{{$factura->cod_articulo}}</option>
+                            @foreach ($articulos_view as $articulo)
+                                <option value="{{$articulo->cod_articulo}}"> {{$articulo->cod_articulo}} - {{$articulo->nom_articulo}}</option>
+                            @endforeach
+                        </select>
                 </div>
             </div>
             <!-- Fin del codigo PHP -->
@@ -101,13 +117,13 @@
                 <h3>Precio Unitario</h3>
                 <div class="tbl_abajo">
                     <span>$</span>
-                    <input type="number" name="valor_unitario" min="1" id="precio_unitario" value="" required>
+                    <input type="number" name="valor_unitario" min="1" id="precio_unitario" value="{{$factura->valor_unitario}}" required>
                 </div>
             </div>
             <div class="cajas">
                 <h3>Cantidad</h3>
                 <div class="tbl_abajo">
-                    <input type="number" name="cantidad" min="1" id="valor_cantidad" value="" required>
+                    <input type="number" name="cantidad" min="1" id="valor_cantidad" value="{{$factura->cantidad}}" required>
                 </div>
             </div>
             <div class="cajas" id="iva">
@@ -141,4 +157,19 @@
         </section>
     </form>
 </main>
+
+@if (session('actualizado'))
+<script>
+    guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

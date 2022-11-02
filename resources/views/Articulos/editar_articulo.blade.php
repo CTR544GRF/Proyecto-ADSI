@@ -27,7 +27,7 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('update_articulo',$articulo)}}" method="POST">
+<form class="registrar_usuario" action="{{route('update_articulo', $articulo)}}" method="POST">
     @csrf @method('PATCH')
     <div class="form_container">
         <h2 class="form_titulo">Editar articulo</h2>
@@ -58,6 +58,8 @@
         <button type="submit" class="form_submit" name="registrarArt">Editar</button>
     </div>
 </form>
+
+
 @if (session('actualizado'))
 <script>
     guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');

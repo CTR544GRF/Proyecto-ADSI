@@ -55,4 +55,19 @@
         <button name="registrar" type="submit" class="form_submit"><strong>Editar empresa</strong></button>
     </div>
 </form>
+
+@if (session('actualizado'))
+<script>
+    guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

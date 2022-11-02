@@ -56,7 +56,7 @@
                 <td data-label="Codigo articulo">{{ $factura->cod_articulo }}</td>
                 <td data-label="Nit">{{ $factura->nit_empresa }}</td>
                 <td data-label="Id usuario">{{ $factura->id_user }}</td>
-                <td data-label="Editar"><a href=" route('edit_factura', $factura)">Editar</a> </td>
+                <td data-label="Editar"><a href="{{ route('edit_factura', $factura) }}">Editar</a> </td>
                 
             </tr>
             @endforeach
@@ -73,4 +73,24 @@
         });
     </script>
 </div>
+
+<!-- Script js -->
+@section('script')
+{{ asset('js/eliminar.js')}}
+@stop
+<!-- Mesajes de confirmacion y error -->
+@if (session('destroy'))
+<script>
+    guardado('Eliminacion Exitosa', '<?php echo session('destroy') ?>');
+</script>
+@endif
+
+@if ($errors->any())
+@foreach ($errors->all() as $message)
+<script>
+    error('Dato Errado', '<?php echo $message ?>')
+</script>
+@endforeach
+@endif
+
 @stop

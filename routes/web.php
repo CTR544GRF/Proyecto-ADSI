@@ -4,13 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\articulos;
 use App\Http\Controllers\usuarios;
 use App\Http\Controllers\empresas;
-<<<<<<< HEAD
 use App\Http\Controllers\facturas;
-=======
 use App\Http\Controllers\entradas;
 use App\Http\Controllers\salidas;
->>>>>>> f481ebd01e8c6abfe625f233f6558dc5e9d2182b
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,8 +29,9 @@ Route::view('/', 'main')->name('main');
 Route::view('/Facturas/registro', 'Facturas.registrar_factura')->name('reg_factura');
 Route::post('/Facturas/registro', facturas::class . '@store')->name('post_reg_factura');
 Route::get('/Facturas/ver', facturas::class . '@index')->name('ver_factura');
-Route::get('/Facturas/{factura}/editar', facturas::class . '@edit')->name('edit_factura');
-// Route::patch('/Facturas/{factura}', facturas::class . '@update')->name('update_factura');
+Route::get('/Facturas/registro', facturas::class . '@index_reg')->name('reg_factura');
+Route::get('/Facturas/editar/{factura}', facturas::class . '@edit')->name('edit_factura');
+Route::patch('Facturas/editar/{factura}', facturas::class . '@update')->name('update_factura');
 
 //vistas Empresas
 Route::view('/Empresas/registro', 'Empresas.registrar_empresa')->name('reg_empresa');
