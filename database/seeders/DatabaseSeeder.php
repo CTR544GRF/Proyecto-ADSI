@@ -14,11 +14,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->truncateTables([
+            'tbl_articulos',
+            'tbl_ciudades',
+            'tbl_roles',
+            'tbl_usuarios',
+            'tbl_empresas'
+            // 'tbl_facturas',
+            // 'tbl_facturas',
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(tbl_articuloseedr::class);
+        $this->call(tbl_ciudadeseedr::class);
+        $this->call(tbl_empresaseedr::class);
+        $this->call(tbl_roleseedr::class);
+        $this->call(tbl_usuarioseedr::class);
+    }
+
+    protected function truncateTables(array $tables){
+        DB::statement('SET FOREING_KEY_CHECKS = 0;');
+        
+        foreach ($tables as $table) {
+            DB::table($table)->truncate();
+        }       
+        
+        DB::statement('SET FOREING_KEY_CHECKS = 1;');
     }
 }
