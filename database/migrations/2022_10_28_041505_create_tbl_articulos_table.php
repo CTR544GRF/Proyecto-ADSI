@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('tipo_articulo', 20);
             $table->String('nom_articulo', 20);
             $table->String('material_articulo', 20);
-            $table->String('talla_articulo', 20);
+            $table->String('talla_articulo', 20)->nullable();
             $table->String('linea', 20);
             $table->String('unidad_medida', 20);
             $table->String('color_articulo', 20);

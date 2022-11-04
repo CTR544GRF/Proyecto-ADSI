@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,18 +28,19 @@ class DatabaseSeeder extends Seeder
 
         $this->call(tbl_articuloseedr::class);
         $this->call(tbl_ciudadeseedr::class);
-        $this->call(tbl_empresaseedr::class);
         $this->call(tbl_roleseedr::class);
         $this->call(tbl_usuarioseedr::class);
+        $this->call(tbl_empresaseedr::class);
+        
     }
 
     protected function truncateTables(array $tables){
-        DB::statement('SET FOREING_KEY_CHECKS = 0;');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         
         foreach ($tables as $table) {
             DB::table($table)->truncate();
         }       
         
-        DB::statement('SET FOREING_KEY_CHECKS = 1;');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
     }
 }

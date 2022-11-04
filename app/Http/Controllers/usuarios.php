@@ -14,7 +14,7 @@ class usuarios extends Controller
         $a= $request->validate([
             'id' => 'required|max:10',
             'email' => 'required|max:30|email',
-            'contraseña' => 'required|max:20',
+            'contraseña' => 'required|max:20|min:5',
             'nombres' => 'required|max:50',
             'apellidos' => 'required|max:50',
             'fecha' => 'required|max:50|date',
