@@ -22,7 +22,7 @@ return new class extends Migration
             $table->String('linea', 20);
             $table->String('unidad_medida', 20);
             $table->String('color_articulo', 20);
-            $table->String('descripcion_articulo', 150);
+            $table->String('descripcion_articulo', 150)->nullable();
             $table->timestamps();
         });
     }

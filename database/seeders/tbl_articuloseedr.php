@@ -14,6 +14,54 @@ class tbl_articuloseedr extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tbl_articulos')->insert([
+            'tipo_articulo'=>'Productos',
+            'nom_articulo'=>'Pantalon',
+            'material_articulo'=>'Jean',
+            'talla_articulo'=>'S',
+            'linea'=>'Adultos',
+            'unidad_medida'=>'metros',
+            'color_articulo'=>'azul'
+        ]);
+
+        DB::table('tbl_articulos')->insert([
+            'tipo_articulo'=>'Productos',
+            'nom_articulo'=>'Pantalon',
+            'material_articulo'=>'Jean',
+            'talla_articulo'=>'S',
+            'linea'=>'Adultos',
+            'unidad_medida'=>'metros',
+            'color_articulo'=>'azul'
+        ]);
+
+        DB::table('tbl_articulos')->insert([
+            'tipo_articulo'=>'Productos',
+            'nom_articulo'=>'Pantalon',
+            'material_articulo'=>'Jean',
+            'talla_articulo'=>'S',
+            'linea'=>'Adultos',
+            'unidad_medida'=>'metros',
+            'color_articulo'=>'azul'
+        ]);
+
+        DB::table('tbl_articulos')->insert([
+            'tipo_articulo'=>'Productos',
+            'nom_articulo'=>'Pantalon',
+            'material_articulo'=>'Jean',
+            'talla_articulo'=>'S',
+            'linea'=>'Adultos',
+            'unidad_medida'=>'metros',
+            'color_articulo'=>'azul'
+        ]);
+
+        DB::table('tbl_articulos')->insert([
+            'tipo_articulo'=>'Productos',
+            'nom_articulo'=>'Pantalon',
+            'material_articulo'=>'Jean',
+            'talla_articulo'=>'S',
+            'linea'=>'Adultos',
+            'unidad_medida'=>'metros',
+            'color_articulo'=>'azul'
+        ]);
     }
 }
