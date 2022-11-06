@@ -56,9 +56,9 @@ Route::delete('/Articulos/{articulo}', articulos::class . '@destroy')->name('del
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
 Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_usuario');
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
-Route::get('/Usuarios/{usuario}/editar', [usuarios::class, 'edit'])->name('edit_usuario');
-Route::patch('/Usuarios/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
-Route::delete('/Usuarios/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
+Route::get('/Usuarios/editar', [usuarios::class, 'edit'])->name('edit_usuario');
+Route::patch('/Usuarios/ver', [usuarios::class, 'update'])->name('update_usuario');
+Route::delete('/Usuarios/ver', [usuarios::class, 'destroy'])->name('delete_usuario');
 
 //vistas Salidas
 Route::view('/Salidas/registro', 'salidas.registrar_salida')->name('reg_salida');

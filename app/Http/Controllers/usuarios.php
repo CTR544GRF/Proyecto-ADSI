@@ -18,7 +18,7 @@ class usuarios extends Controller
             'nombres' => 'required|max:50',
             'apellidos' => 'required|max:50',
             'fecha' => 'required|max:50|date',
-            'telefono' => 'required|max:10|integer',
+            'telefono' => 'required|max:10',
             'direccion' => 'required|max:20',
             'rol' => 'required|max:20',
         ]);
@@ -43,13 +43,13 @@ class usuarios extends Controller
         return view('usuarios.usuarios', compact('usuarios'));
     }
 
-    public function edit(tbl_usuarios $usuarios)
+    public function edit(tbl_usuarios $usuario)
     {
 
-        return view('usuarios.editar_usuario', compact('usuarios'));
+        return view('usuarios.editar_usuario', compact('usuario'));
     }
 
-    public function update(Request $request, tbl_usuarios $usuarios)
+    public function update(Request $request, tbl_usuarios $usuario)
     {
         $a= $request->validate([
             'id' => 'required|max:10',
@@ -63,24 +63,24 @@ class usuarios extends Controller
             'rol' => 'required|max:20',
         ]);
      
-        $usuarios = new tbl_usuarios();
-        $usuarios->id_user = $request->id;
-        $usuarios->email_user = $request->email;
-        $usuarios->contraseña_user = $request->contraseña;
-        $usuarios->nom_user = $request->nombres;
-        $usuarios->apellidos_user = $request->apellidos;
-        $usuarios->fecha_ingreso = $request->fecha;
-        $usuarios->telefono_user = $request->telefono;
-        $usuarios->direccion_user = $request->direccion;
-        $usuarios->cod_rol = $request->rol;
-        $usuarios->save();
+        $usuario = new tbl_usuarios();
+        $usuario->id_user = $request->id;
+        $usuario->email_user = $request->email;
+        $usuario->contraseña_user = $request->contraseña;
+        $usuario->nom_user = $request->nombres;
+        $usuario->apellidos_user = $request->apellidos;
+        $usuario->fecha_ingreso = $request->fecha;
+        $usuario->telefono_user = $request->telefono;
+        $usuario->direccion_user = $request->direccion;
+        $usuario->cod_rol = $request->rol;
+        $usuario->save();
         session()->flash('actualizado', 'El usuario a sido editado con exito');
         return view('usuarios.editar_usuario', compact('usuarios'));
     }
 
-    public function destroy(tbl_usuarios $usuarios)
+    public function destroy(tbl_usuarios $usuario)
     {
-        $articulo->delete();
+        $usuario->delete();
 
         return back()->with('destroy', 'El usuario a sido eliminado correctamente');
     }

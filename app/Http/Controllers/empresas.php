@@ -44,7 +44,7 @@ class empresas extends Controller
         return view('Empresas.editar_empresa', compact('empresa','usuarios_view'));
     }
     
-    public function update(Request $request, tbl_empresas $empresa)
+    public function update(Request $request, tbl_empresas $empresas)
     {
         $request->validate([
             'nombre' => 'required|max:20',

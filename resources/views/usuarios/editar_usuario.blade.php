@@ -69,15 +69,15 @@
             required value="{{$usuario->fecha_ingreso}}">
         </div>
         <div class="from_group">
-        <select name="rol" id="rol" required value="{{$usuario->cod_rol}}">
-            <option selected>Rol</option>
+        <select name="rol" id="rol" required>
+            <option selected value="{{$usuario->cod_rol}}">{{$usuario->cod_rol}}</option>
             <option value="2">Contador</option>
             <option value="3">Cliente</option>
             <option value="4">Proveedor</option>
             <option value="5">Almacenista</option>
         </select>
         </div>
-        <a href="main"><input value="Editar" class="form_submit" name='submit'></a>
+        <button type="submit" class="form_submit" name="registrarArt">Editar</button>
     </div>
 </form>
 @if (session('actualizado'))

@@ -26,9 +26,17 @@
 @csrf
     <h2 class="form_titulo">Registrar salida</h2>
     <div class="form_container">
-        <div class="from_group">
+        <!-- <div class="from_group">
             <input type="text"  class="from_input" placeholder="Codigo de artículo" name="cod_articulo"
             required maxlength="10" minlength="10">                    
+        </div> -->
+        <div class="from_group">
+            <select name="id_user" class="from_group">
+                <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
+                @foreach ($articulos_view as $articulo)
+                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="from_group">
             <select name="causal_salida" id="causal">

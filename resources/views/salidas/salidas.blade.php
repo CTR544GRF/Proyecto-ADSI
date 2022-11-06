@@ -37,7 +37,7 @@
             </tr>
         </thead>
         <tbody id="myTable">
-        @foreach ($salidass as $salida)
+        @foreach ($salidas as $salida)
             <tr>
                 <td data-label="codigoS" >{{$salida->cod_registro}}</td>
                 <td data-label="codigoA" >{{$salida->cod_articulo}}</td>

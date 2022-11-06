@@ -15,11 +15,6 @@
 {{'Registrar'}}
 @stop
 
-<!-- Script js -->
-@section('script')
-{{ asset('js/eliminar.js')}}
-@stop
-
 <!-- Titulo -->
 @section('titulo')
 {{ 'Usuarios'}}
