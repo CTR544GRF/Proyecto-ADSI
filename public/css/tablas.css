@@ -1,4 +1,10 @@
 /*Tabla*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
 tr td .a {
     vertical-align: top;
@@ -140,6 +146,7 @@ td:hover {
 }
 
 .btn_eliminar {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
+    width: 3.7rem;
+    margin: auto;
+
 }

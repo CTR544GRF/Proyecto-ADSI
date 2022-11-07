@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class tbl_roles extends Model
 {
+    protected $primaryKey = 'cod_rol';
     use HasFactory;
 }
