@@ -5,14 +5,14 @@
 {{asset('css/forms.css')}}
 @stop
 
-<!--link nav -->
+<!-- link nav -->
 @section('link')
-{{ route('edit_usuario')}}
+{{''}}
 @stop
 
 <!-- palabra nav -->
 @section('palabra-accion')
-{{'Editar'}}
+{{''}}
 @stop
 
 <!--link nav2 -->
@@ -65,14 +65,14 @@
         </div>
         <div class="from_group">
             <select name="rol" id="rol" required >
-                <option selected>Rol</option>
-                <option value="2">Contador</option>
-                <option value="3">Cliente</option>
-                <option value="4">Proveedor</option>
-                <option value="5">Almacenista</option>
+                    <option value="">Crear un rol</option>
+                    @foreach ($roles as $rol)
+                    <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
+                    @endforeach
             </select>
         </div>
         <button class="form_submit" type='submit'> Registrar </button>
+        <button class="form_submit"><a href="{{ route('crear_rol')}}"> Crear rol </a></button>
     </div>
 </form>
 @if (session('guardado'))

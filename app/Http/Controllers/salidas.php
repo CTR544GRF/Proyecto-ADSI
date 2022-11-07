@@ -17,7 +17,7 @@ class salidas extends Controller
             'cod_articulo' => 'required|max:10',
             'tipo' => 'required|max:30',
             'cantidad' => 'required|max:20',
-            'causal' => 'required|max:50',
+            'causal' => 'required|max:100',
             'num_factura' => 'max:50',
         ]);
      
@@ -25,7 +25,7 @@ class salidas extends Controller
         $salidas->cod_articulo = $request->cod_articulo;
         $salidas->tipo = "Salida";
         $salidas->cantidad = $request->cantidad;
-        $salidas->causal = $request->causal_salida;
+        $salidas->causal = $request->causal;
         $salidas->num_factura = $request->num_factura;
         $salidas->save();
         return redirect()->route('post_reg_salidas') -> with('guardado', 'Tarea creada correctamente');

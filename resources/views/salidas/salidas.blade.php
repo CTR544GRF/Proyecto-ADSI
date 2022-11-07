@@ -27,21 +27,19 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Codigo registro</th>
-                <th>Tipo registro</th>
+                <th>Codigo entrada</th>
                 <th>Codigo articulo</th>
-                <th>Casual de salida</th>
+                <th>Casual de entrada</th>
                 <th>Numero de factura</th>
                 <th>Cantidad</th>
-                
             </tr>
         </thead>
         <tbody id="myTable">
         @foreach ($salidas as $salida)
             <tr>
-                <td data-label="codigoS" >{{$salida->cod_registro}}</td>
+                <td data-label="codigoE" >{{$salida->cod_registro}}</td>
                 <td data-label="codigoA" >{{$salida->cod_articulo}}</td>
-                <td data-label="causal" >{{$salida->causal_salida}}</td>
+                <td data-label="causal" >{{$salida->causal}}</td>
                 <td data-label="numeroF" >{{$salida->num_factura}}</td>
                 <td data-label="cantidad" >{{$salida->cantidad}}</td>
             </tr>
@@ -59,7 +57,5 @@
     });
     </script>
 </div>
-
-
 @stop
 

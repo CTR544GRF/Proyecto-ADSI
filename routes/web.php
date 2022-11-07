@@ -6,6 +6,7 @@ use App\Http\Controllers\usuarios;
 use App\Http\Controllers\empresas;
 use App\Http\Controllers\facturas;
 use App\Http\Controllers\entradas;
+use App\Http\Controllers\roles;
 use App\Http\Controllers\salidas;
 /*
 |--------------------------------------------------------------------------
@@ -56,16 +57,26 @@ Route::delete('/Articulos/{articulo}', articulos::class . '@destroy')->name('del
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
 Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_usuario');
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
+Route::get('/Usuarios/registro', [usuarios::class, 'index2'])->name('reg_usuario');
 Route::get('/Usuarios/editar', [usuarios::class, 'edit'])->name('edit_usuario');
-Route::patch('/Usuarios/ver', [usuarios::class, 'update'])->name('update_usuario');
+Route::patch('/Usuarios/editar', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver', [usuarios::class, 'destroy'])->name('delete_usuario');
+//vista roles
+Route::view('/Usuario/Registro/Roles', 'usuarios.roles')->name('crear_rol');
+Route::post('/Usuario/Registro/Roles', [roles::class, 'store'])->name('post_crear_rol');
+Route::get('/Usuario/Registro/Roles', [roles::class, 'index'])->name('crear_rol');
+Route::get('/Usuario/Registro/editar', [roles::class, 'edit'])->name('edit_rol');
+Route::patch('/Usuario/Registro/editar', [roles::class, 'update'])->name('update_rol');
+Route::delete('/Usuario/Registro/{rol}', roles::class . '@destroy')->name('delete_rol');
 
 //vistas Salidas
 Route::view('/Salidas/registro', 'salidas.registrar_salida')->name('reg_salida');
 Route::post('/Salidas/registro', [salidas::class, 'store'])->name('post_reg_salida');
+Route::get('/salidas/registro', [salidas::class, 'index2'])->name('reg_salida');
 Route::get('/Salidas/ver', [salidas::class, 'index'])->name('ver_salida');
 
 //vistas Entradas
 Route::view('/Entradas/registro', 'entradas.registrar_entrada')->name('reg_entrada');
 Route::post('/Entradas/registro', [entradas::class, 'store'])->name('post_reg_entrada');
-Route::get('/Entradas/ver', [entradas::class, 'index'])->name('ver_entrada');
+Route::get('/Entradas/registro', [entradas::class, 'index2'])->name('reg_entrada');
+Route::get('/Entradas/Ver', [entradas::class, 'index'])->name('ver_entrada');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\tbl_usuarios;
+use App\Models\tbl_roles;
 use Illuminate\Http\Request;
 
 class usuarios extends Controller
@@ -11,7 +12,7 @@ class usuarios extends Controller
     public function store(Request $request)
     {   
        /* El validate funciona, pero los datos que se estan enviando no cumplen    */
-        $a= $request->validate([
+        $request->validate([
             'id' => 'required|max:10',
             'email' => 'required|max:30|email',
             'contraseña' => 'required|max:20|min:5',
@@ -42,6 +43,11 @@ class usuarios extends Controller
         $usuarios = tbl_usuarios::all();
         return view('usuarios.usuarios', compact('usuarios'));
     }
+    public function index2() {
+
+        $roles = tbl_roles::all();
+        return view('usuarios.registrar_usuario', compact('roles'));
+    }
 
     public function edit(tbl_usuarios $usuario)
     {
@@ -51,7 +57,7 @@ class usuarios extends Controller
 
     public function update(Request $request, tbl_usuarios $usuario)
     {
-        $a= $request->validate([
+        $request->validate([
             'id' => 'required|max:10',
             'email' => 'required|max:30|email',
             'contraseña' => 'required|max:20',

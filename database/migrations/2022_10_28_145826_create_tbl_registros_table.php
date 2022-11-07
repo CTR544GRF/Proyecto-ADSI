@@ -17,9 +17,9 @@ return new class extends Migration
             $table->integer('cod_registro',10);
             $table->String('tipo', 20);
             $table->Integer('cantidad');
-            $table->String('causal', 20);
+            $table->String('causal', 100);
             $table->integer('num_factura')->nullable();
-            $table->foreign('num_factura')->references('num_factura')->on('tbl_facturas');
+            $table->foreign('num_factura')->references('num_factura')->on('tbl_facturas')->nullable();
             $table->integer('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
             $table->timestamps();

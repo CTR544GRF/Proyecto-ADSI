@@ -66,6 +66,21 @@ select {
     border: black 1px solid;
 }
 
+button.form_submit {
+    width: 100%;
+}
+
+form.registrar_usuario {
+    margin-top: 20px;
+}
+
+form.registrar_usuario a {
+    color: white;
+}
+
+.tabla {
+    margin-bottom: 1rem;
+}
 
 
 /* formulario resposive */

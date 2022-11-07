@@ -22,24 +22,20 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('post_reg_salida')}}" enctype="multipart/form-data">
+<form class="registrar_usuario" action="{{route('post_reg_salida')}}" method="POST" enctype="multipart/form-data">
 @csrf
     <h2 class="form_titulo">Registrar salida</h2>
     <div class="form_container">
-        <!-- <div class="from_group">
-            <input type="text"  class="from_input" placeholder="Codigo de artículo" name="cod_articulo"
-            required maxlength="10" minlength="10">                    
-        </div> -->
         <div class="from_group">
-            <select name="id_user" class="from_group">
+            <select name="cod_articulo" class="from_group">
                 <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
                 @foreach ($articulos_view as $articulo)
-                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}}</option>
+                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}}</option>
                 @endforeach
             </select>
-        </div>
+        </div> 
         <div class="from_group">
-            <select name="causal_salida" id="causal">
+            <select name="causal" id="causal">
                 <option select="Causal salida">Causal salida</option>
                 <option value="Factura de venta - producto">Factura de venta - producto</option>
                 <option value="No conforme - producto">No conforme - producto</option>
@@ -69,11 +65,11 @@
 @if ($errors->any())
 @foreach ($errors->all() as $message)
 <script>
-    error('Dato Errado', '<?php echo $message ?>')
+    error('Dato Errado', '')
 </script>
 @endforeach
 
-@endif
+@endif 
 
 
 @stop
