@@ -49,6 +49,12 @@ class usuarios extends Controller
         return view('usuarios.registrar_usuario', compact('roles'));
     }
 
+    public function index3() {
+
+        $roles = tbl_roles::all();
+        return view('usuarios.editar_usuario', compact('roles'));
+    }
+
     public function edit(tbl_usuarios $usuario)
     {
 

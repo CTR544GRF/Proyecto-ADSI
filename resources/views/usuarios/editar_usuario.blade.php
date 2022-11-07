@@ -32,8 +32,9 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('update_usuario',$usuario)}}" method="POST" >
-@csrf @method('PATCH')
+<form class="registrar_usuario" action="route('update_usuario')" method="POST" >
+@csrf 
+@method('PATCH')
     <h2 class="form_titulo">Editar usuario</h2>
     <div class="form_container">
         <div class="from_group">
@@ -70,11 +71,10 @@
         </div>
         <div class="from_group">
         <select name="rol" id="rol" required>
-            <option selected value="{{$usuario->cod_rol}}">{{$usuario->cod_rol}}</option>
-            <option value="2">Contador</option>
-            <option value="3">Cliente</option>
-            <option value="4">Proveedor</option>
-            <option value="5">Almacenista</option>
+            <option selected value="{{$usuario->cod_rol}}">{{$usuario->cod_rol}} - {{$rol->nom_rol}}</option>
+            @foreach ($roles as $rol)
+            <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
+            @endforeach
         </select>
         </div>
         <button type="submit" class="form_submit" name="registrarArt">Editar</button>

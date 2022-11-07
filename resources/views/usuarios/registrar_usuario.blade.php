@@ -65,7 +65,7 @@
         </div>
         <div class="from_group">
             <select name="rol" id="rol" required >
-                    <option value="">Crear un rol</option>
+                    <option value="">Seleccione rol</option>
                     @foreach ($roles as $rol)
                     <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
                     @endforeach

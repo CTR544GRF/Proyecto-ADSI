@@ -52,7 +52,7 @@
             required maxlength="10" minlength="10">
         </div>
         <input type="submit" value="Registrar" class="form_submit" class="gap" name="Registrar">
-        <input type="submit" value="Limpiar" class="form_submit" class="gap" name="Limpiar">
+        <input type="reset" value="Limpiar" class="form_submit" class="gap" name="Limpiar">
 
     </div>
 </form>

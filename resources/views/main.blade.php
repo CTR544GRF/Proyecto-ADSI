@@ -34,7 +34,7 @@
         <div class="containers">
 
             <div class="usuarios">
-                <a href="#"><img src="img/icons8-producto-nuevo.png" alt="usuarios"></a>
+                <a href="{{ route('ver_inventario')}}"><img src="img/icons8-producto-nuevo.png" alt="usuarios"></a>
                 <h2 class="titulo_usuarios">Inventario</h2>
             </div>
             <div class="usuarios">
