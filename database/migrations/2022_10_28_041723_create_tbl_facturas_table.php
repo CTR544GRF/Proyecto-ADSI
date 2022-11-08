@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_facturas', function (Blueprint $table) {
-            $table->integer('num_factura',10);
+            $table->integer('num_factura', 10);
             $table->date('fecha');
             $table->String('tipo_factura', 20);
-            $table->float('valor_unitario');
-            $table->Integer('cantidad');
-            $table->float('sub_total');
-            $table->float('iva');
-            $table->float('total');
+            $table->double('valor_unitario');
+            $table->double('cantidad');
+            $table->integer('sub_total');
+            $table->double('iva');
+            $table->double('total');
             $table->String('descripcion', 150);
             $table->integer('cod_articulo');
             $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
