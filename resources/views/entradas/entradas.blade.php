@@ -34,16 +34,19 @@
                 <th>Numero de factura</th>
                 <th>Cantidad</th>
                 
+                
             </tr>
         </thead>
         <tbody id="myTable">
         @foreach ($entradas as $entrada)
             <tr>
-                <td data-label="codigoS" >{{$entrada->cod_registro}}</td>
+                <td data-label="codigoR" >{{$entrada->cod_registro}}</td>
+                <td data-label="tipo" >{{$entrada->tipo}}</td>
                 <td data-label="codigoA" >{{$entrada->cod_articulo}}</td>
                 <td data-label="causal" >{{$entrada->causal}}</td>
                 <td data-label="numeroF" >{{$entrada->num_factura}}</td>
                 <td data-label="cantidad" >{{$entrada->cantidad}}</td>
+                
             </tr>
         @endforeach
         </tbody>

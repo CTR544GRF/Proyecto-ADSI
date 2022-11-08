@@ -30,13 +30,13 @@
             <select name="cod_articulo" class="from_group">
                 <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
                 @foreach ($articulos_view as $articulo)
-                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}}</option>
+                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}} - {{$articulo->tipo_articulo}}</option>
                 @endforeach
             </select>
         </div> 
         <div class="from_group">
             <select name="causal" id="causal">
-                <option select="Causal salida">Causal salida</option>
+                <option select="">Causal salida</option>
                 <option value="Factura de venta - producto">Factura de venta - producto</option>
                 <option value="No conforme - producto">No conforme - producto</option>
                 <option value="Confección (Satelite) - materia prima">Confección (Satelite) - materia prima</option>
@@ -50,6 +50,12 @@
         <div class="from_group">
             <input type="number"  class="from_input" placeholder="Cantidad" name="cantidad" 
             required maxlength="10" minlength="10">
+        </div>
+        <div class="from_group">
+            <select name="tipo" id="tipo">
+                <option select="">Seleccione tipo registro</option>
+                <option value="salida">Salida</option>
+            </select>                  
         </div>
         <input type="submit" value="Registrar" class="form_submit" class="gap" name="Registrar">
         <input type="reset" value="Limpiar" class="form_submit" class="gap" name="Limpiar">

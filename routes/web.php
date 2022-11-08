@@ -59,7 +59,7 @@ Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_us
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
 Route::get('/Usuarios/registro', [usuarios::class, 'index2'])->name('reg_usuario');
 Route::get('/Usuarios/editar/{usuario}', [usuarios::class, 'edit'])->name('edit_usuario');
-Route::get('/Usuarios/editar/{rol}', [usuarios::class, 'index3'])->name('edit_usuario');
+Route::get('/Usuarios/editar/{rol}', usuarios::class. '@index2')->name('edit_usuario');
 Route::patch('/Usuarios/editar/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
 //vista roles
