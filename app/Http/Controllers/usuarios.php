@@ -10,10 +10,9 @@ use Illuminate\Http\Request;
 class usuarios extends Controller
 {
     public function store(Request $request)
-    {   
-       /* El validate funciona, pero los datos que se estan enviando no cumplen    */
+    {
+        /* El validate funciona, pero los datos que se estan enviando no cumplen    */
         $request->validate([
-            'id' => 'required|max:10',
             'email' => 'required|max:30|email',
             'contraseña' => 'required|max:20|min:5',
             'nombres' => 'required|max:50',
@@ -23,11 +22,11 @@ class usuarios extends Controller
             'direccion' => 'required|max:20',
             'rol' => 'required|max:20',
         ]);
-     
+
         $usuarios = new tbl_usuarios();
         $usuarios->id_user = $request->id;
         $usuarios->email_user = $request->email;
-        $usuarios->contraseña_user = $request->contraseña;
+        $usuarios->contraseña_user = bcrypt($request->contraseña);
         $usuarios->nom_user = $request->nombres;
         $usuarios->apellidos_user = $request->apellidos;
         $usuarios->fecha_ingreso = $request->fecha;
@@ -35,21 +34,24 @@ class usuarios extends Controller
         $usuarios->direccion_user = $request->direccion;
         $usuarios->cod_rol = $request->rol;
         $usuarios->save();
-        return redirect()->route('post_reg_usuario') -> with('guardado', 'Tarea creada correctamente');
+        return redirect()->route('post_reg_usuario')->with('guardado', 'Tarea creada correctamente');
     }
 
-    public function index() {
+    public function index()
+    {
 
         $usuarios = tbl_usuarios::all();
         return view('usuarios.usuarios', compact('usuarios'));
     }
-    public function index2() {
+    public function index2()
+    {
 
         $roles = tbl_roles::all();
         return view('usuarios.registrar_usuario', compact('roles'));
     }
 
-    public function index3() {
+    public function index3()
+    {
 
         $roles = tbl_roles::all();
         return view('usuarios.editar_usuario', compact('roles'));
@@ -74,7 +76,7 @@ class usuarios extends Controller
             'direccion' => 'required|max:20',
             'rol' => 'required|max:20',
         ]);
-     
+
         $usuario = new tbl_usuarios();
         $usuario->id_user = $request->id;
         $usuario->email_user = $request->email;
@@ -96,5 +98,4 @@ class usuarios extends Controller
 
         return back()->with('destroy', 'El usuario a sido eliminado correctamente');
     }
-
 }

@@ -39,9 +39,7 @@
     @csrf
     <h2 class="form_titulo">Registrar Usuarios</h2>
     <div class="form_container">
-        <div class="from_group">
-            <input type="text" id="id" class="from_input" placeholder="Id" name="id" required >
-        </div>
+
         <div class="from_group">
             <input type="text" id="nombres" class="from_input" placeholder="Nombres" name="nombres" required pattern="^[A-Za-z ]+" maxlength="25">
         </div>
@@ -64,11 +62,11 @@
             <input type="date" id="fecha" class="from_input" placeholder="Fecha de ingreso" name="fecha" required>
         </div>
         <div class="from_group">
-            <select name="rol" id="rol" required >
-                    <option value="">Seleccione rol</option>
-                    @foreach ($roles as $rol)
-                    <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
-                    @endforeach
+            <select name="rol" id="rol" required>
+                <option value="">Seleccione rol</option>
+                @foreach ($roles as $rol)
+                <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
+                @endforeach
             </select>
         </div>
         <button class="form_submit" type='submit'> Registrar </button>
