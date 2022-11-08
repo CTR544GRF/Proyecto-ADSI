@@ -150,3 +150,59 @@ td:hover {
     margin: auto;
 
 }
+
+  
+ 
+
+  @media (min-width: 700px) {
+    
+
+div[data-modal]{
+    top: 0;
+    position: fixed;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+  }
+  .container_form_actualizar{
+    height: 80%;
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 1%;
+    border-radius: 10px;
+  } 
+  .modal_top{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  .close_modal{
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    border: 1px solid;
+    color: white;
+    background-color: rgb(39, 135, 135);
+    padding: 8px;
+    border-radius: 15px;
+  }
+  
+  .actualizar_rol{
+    margin: 0px;
+    width: 80% !important;
+  }
+
+  
+}
