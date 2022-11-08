@@ -24,13 +24,13 @@
 @section('seccion')
 <form class="registrar_usuario" action="{{route('post_reg_entrada')}}" method="POST" enctype="multipart/form-data">
 @csrf
-    <h2 class="form_titulo">Registrar salida</h2>
+    <h2 class="form_titulo">Registrar entrada</h2>
     <div class="form_container">
         <div class="from_group">
             <select name="cod_articulo" class="from_group">
                 <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
                 @foreach ($articulos_view as $articulo)
-                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}}</option>
+                <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}} - {{$articulo->tipo_articulo}}</option>
                 @endforeach
             </select>
         </div> 
@@ -51,6 +51,13 @@
             <input type="number"  class="from_input" placeholder="Cantidad" name="cantidad" 
             required maxlength="10" minlength="10">
         </div>
+        <div class="from_group">
+            <select name="tipo" id="tipo">
+                <option select="">Seleccione tipo registro</option>
+                <option value="Entrada">Entrada</option>
+            </select>                  
+        </div>
+        
         <input type="submit" value="Registrar" class="form_submit" class="gap" name="Registrar">
         <input type="reset" value="Limpiar" class="form_submit" class="gap" name="Limpiar">
 

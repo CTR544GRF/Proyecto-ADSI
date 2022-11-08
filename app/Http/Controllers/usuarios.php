@@ -14,7 +14,7 @@ class usuarios extends Controller
        /* El validate funciona, pero los datos que se estan enviando no cumplen    */
         $request->validate([
             'id' => 'required|max:10',
-            'email' => 'required|max:30|email',
+            'email' => 'required|max:30|email|unique',
             'contraseña' => 'required|max:20|min:5',
             'nombres' => 'required|max:50',
             'apellidos' => 'required|max:50',
@@ -49,17 +49,19 @@ class usuarios extends Controller
         return view('usuarios.registrar_usuario', compact('roles'));
     }
 
-    public function index3() {
-
-        $roles = tbl_roles::all();
-        return view('usuarios.editar_usuario', compact('roles'));
-    }
+ 
 
     public function edit(tbl_usuarios $usuario)
     {
 
         return view('usuarios.editar_usuario', compact('usuario'));
     }
+
+    public function index3() {
+        $roles = tbl_roles::all();
+       return view('usuarios.editar_usuario', compact('roles'));
+   }
+
 
     public function update(Request $request, tbl_usuarios $usuario)
     {
