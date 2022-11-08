@@ -10,15 +10,12 @@ use Illuminate\Http\Request;
 class usuarios extends Controller
 {
     public function store(Request $request)
-    {
-        /* El validate funciona, pero los datos que se estan enviando no cumplen    */
+    {   
         $request->validate([
-<<<<<<< HEAD
+
             'email' => 'required|max:30|email',
-=======
             'id' => 'required|max:10',
-            'email' => 'required|max:30|email|unique',
->>>>>>> d7be77f09dab137bfde9679d6ebb8dfbc94f56cf
+            'email' => 'required|max:30|email',
             'contraseña' => 'required|max:20|min:5',
             'nombres' => 'required|max:50',
             'apellidos' => 'required|max:50',
@@ -54,17 +51,6 @@ class usuarios extends Controller
         $roles = tbl_roles::all();
         return view('usuarios.registrar_usuario', compact('roles'));
     }
-
-<<<<<<< HEAD
-    public function index3()
-    {
-
-        $roles = tbl_roles::all();
-        return view('usuarios.editar_usuario', compact('roles'));
-    }
-=======
- 
->>>>>>> d7be77f09dab137bfde9679d6ebb8dfbc94f56cf
 
     public function edit(tbl_usuarios $usuario)
     {

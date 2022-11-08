@@ -39,7 +39,10 @@
     @csrf
     <h2 class="form_titulo">Registrar Usuarios</h2>
     <div class="form_container">
-
+        <div class="from_group">
+            <input type="text" id="ID" class="from_input" placeholder="Id" name="id" 
+            required maxlength="10">
+        </div>
         <div class="from_group">
             <input type="text" id="nombres" class="from_input" placeholder="Nombres" name="nombres" required pattern="^[A-Za-z ]+" maxlength="25">
         </div>
