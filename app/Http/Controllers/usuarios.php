@@ -47,9 +47,14 @@ class usuarios extends Controller
     }
     public function index2()
     {
-
         $roles = tbl_roles::all();
         return view('usuarios.registrar_usuario', compact('roles'));
+    }
+
+    public function index3() 
+    {
+        $roles = tbl_roles::all();
+       return view('usuarios.editar_usuario', compact('roles'));
     }
 
     public function edit(tbl_usuarios $usuario)
@@ -58,10 +63,7 @@ class usuarios extends Controller
         return view('usuarios.editar_usuario', compact('usuario'));
     }
 
-    public function index3() {
-        $roles = tbl_roles::all();
-       return view('usuarios.editar_usuario', compact('roles'));
-   }
+  
 
 
     public function update(Request $request, tbl_usuarios $usuario)

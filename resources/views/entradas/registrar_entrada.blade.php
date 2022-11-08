@@ -18,7 +18,7 @@
 
 <!-- Titulo -->
 @section('titulo')
-{{ 'Salidas'}}
+{{ 'Registrar entrada'}}
 @stop
 
 @section('seccion')
@@ -28,7 +28,7 @@
     <div class="form_container">
         <div class="from_group">
             <select name="cod_articulo" class="from_group">
-                <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
+                <option value=""><button href="{{route('reg_articulo')}}" ><a >Seleccione un Artículo</a></button></option>
                 @foreach ($articulos_view as $articulo)
                 <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}} - {{$articulo->tipo_articulo}}</option>
                 @endforeach
@@ -54,7 +54,7 @@
         <div class="from_group">
             <select name="tipo" id="tipo">
                 <option select="">Seleccione tipo registro</option>
-                <option value="Entrada">Entrada</option>
+                <option value="entrada">Entrada</option>
             </select>                  
         </div>
         

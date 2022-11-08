@@ -5,16 +5,6 @@
 {{asset('css/tablas.css')}}
 @stop
 
-<!--link nav -->
-@section('link')
-{{ route('')}}
-@stop
-
-<!-- palabra nav -->
-@section('palabra-accion')
-{{''}}
-@stop
-
 <!-- Titulo -->
 @section('titulo')
 {{ 'Inventario'}}

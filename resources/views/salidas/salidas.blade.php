@@ -27,7 +27,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Codigo entrada</th>
+                <th>Codigo registro</th>
+                <th>Tipo registro</th>
                 <th>Codigo articulo</th>
                 <th>Casual de entrada</th>
                 <th>Numero de factura</th>
@@ -38,6 +39,7 @@
         @foreach ($salidas as $salida)
             <tr>
                 <td data-label="codigoE" >{{$salida->cod_registro}}</td>
+                <td data-label="tipo" >{{$salida->tipo}}</td>
                 <td data-label="codigoA" >{{$salida->cod_articulo}}</td>
                 <td data-label="causal" >{{$salida->causal}}</td>
                 <td data-label="numeroF" >{{$salida->num_factura}}</td>

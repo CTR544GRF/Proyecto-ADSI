@@ -28,7 +28,7 @@ class salidas extends Controller
         $salidas->causal = $request->causal;
         $salidas->num_factura = $request->num_factura;
         $salidas->save();
-        return redirect()->route('post_reg_salidas') -> with('guardado', 'Tarea creada correctamente');
+        return redirect()->route('post_reg_salida') -> with('guardado', 'Tarea creada correctamente');
     }
 
     public function index() {
@@ -38,7 +38,7 @@ class salidas extends Controller
     }
 
     public function index2(){
-        $articulos_view = tbl_articulos::all();
-        return view('salidas.registrar_salida', compact('articulos_view'));
+        $articulos = tbl_articulos::all();
+        return view('salidas.registrar_salida', compact('articulos'));
     }
 }

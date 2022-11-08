@@ -72,9 +72,9 @@
         <div class="from_group">
         <select name="rol" id="rol" required>
             <option selected value="{{$usuario->cod_rol}}">{{$usuario->cod_rol}}</option>
-            @foreach ($roles as $rol)
-            <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
-            @endforeach
+                @foreach ($roles as $rol)
+                    <option value="{{$rol->cod_rol}}">{{$rol->cod_rol }} - {{$rol->nom_rol}}</option>
+                @endforeach
         </select>
         </div>
         <button type="submit" class="form_submit" name="registrarArt">Editar</button>

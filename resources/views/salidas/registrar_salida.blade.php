@@ -18,7 +18,7 @@
 
 <!-- Titulo -->
 @section('titulo')
-{{ 'Salidas'}}
+{{ 'Registrar salida'}}
 @stop
 
 @section('seccion')
@@ -29,7 +29,7 @@
         <div class="from_group">
             <select name="cod_articulo" class="from_group">
                 <option value=""><button href="{{route('reg_articulo')}}" ><a >Crear un Articulo</a></button></option>
-                @foreach ($articulos_view as $articulo)
+                @foreach ($articulos as $articulo)
                 <option value="{{$articulo->cod_articulo}}">{{$articulo->cod_articulo }} - {{$articulo->nom_articulo}} - {{$articulo->color_articulo}} - {{$articulo->tipo_articulo}}</option>
                 @endforeach
             </select>
