@@ -76,7 +76,7 @@
 @if ($errors->any())
 @foreach ($errors->all() as $message)
 <script>
-    error('Dato Errado', '')
+    error('Dato Errado', 'dejo algún campo sin seleccionar')
 </script>
 @endforeach
 
