@@ -40,7 +40,6 @@ Route::post('/Empresas/registro', empresas::class . '@store')->name('post_reg_em
 Route::get('/Empresas/ver', empresas::class . '@index')->name('ver_empresa');
 Route::get('/Empresas/registro', empresas::class . '@index2')->name('reg_empresa');
 Route::get('/Empresas/editar/{empresa}', empresas::class . '@edit')->name('edit_empresa');
-Route::get('/Empresas/editar/{usuarios_view}', empresas::class . '@index3')->name('edit_empresa');
 Route::patch('/Empresas/{empresa}', empresas::class . '@update')->name('update_empresa');
 Route::delete('/Empresas/{empresa}', empresas::class . '@destroy')->name('delete_empresa');
 
@@ -59,7 +58,6 @@ Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_us
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
 Route::get('/Usuarios/registro', [usuarios::class, 'index2'])->name('reg_usuario');
 Route::get('/Usuarios/editar/{usuario}', [usuarios::class, 'edit'])->name('edit_usuario');
-Route::get('/Usuarios/editarr/{rol}', usuarios::class. '@index3')->name('edit_usuario');
 Route::patch('/Usuarios/editar/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
 

@@ -11,45 +11,56 @@ use Illuminate\Support\Facades\DB;
 class usuarios extends Controller
 {
     public function store(Request $request)
-    {   
-        $existencia = DB::table('tbl_usuarios')
+    {
+        $user = DB::table('tbl_usuarios')
             ->select('id_user')
             ->where('id_user', '=', $request->id)
-            ->get();
+            ->exists();
+        $email = DB::table('tbl_usuarios')
+            ->select('email_user')
+            ->where('email_user', '=', $request->email)
+            ->exists();
 
-        if (isset($existencia[0])) {
-            if ($request->id == $existencia[0]->id_user) {
-                return redirect()->route('post_reg_usuario')->with('error', 'El id ya existe' . $request->id);
+        if ($user || $email) {
+            if ($user && $email) {
+                return redirect()->route('post_reg_usuario')->with('error', 'El usuario ya existe');
             }
+            if ($user) {
+                return redirect()->route('post_reg_usuario')->with('error', 'El id ' . $request->id . ' ya existe');
+            }
+            if ($email) {
+                return redirect()->route('post_reg_usuario')->with('error', 'El email ' . $request->email . ' ya existe');
+            }
+           
         } else {
 
-        $request->validate([
+            $request->validate([
 
-            'email' => 'required|max:30|email',
-            'id' => 'required|max:10',
-            'email' => 'required|max:30|email',
-            'contraseña' => 'required|max:20|min:5',
-            'nombres' => 'required|max:50',
-            'apellidos' => 'required|max:50',
-            'fecha' => 'required|max:50|date',
-            'telefono' => 'required|max:10',
-            'direccion' => 'required|max:20',
-            'rol' => 'required|max:20',
-        ]);
+                'email' => 'required|max:30|email',
+                'id' => 'required|max:10',
+                'email' => 'required|max:30|email',
+                'contraseña' => 'required|max:20|min:5',
+                'nombres' => 'required|max:50',
+                'apellidos' => 'required|max:50',
+                'fecha' => 'required|max:50|date',
+                'telefono' => 'required|max:10',
+                'direccion' => 'required|max:20',
+                'rol' => 'required|max:20',
+            ]);
 
-        $usuarios = new tbl_usuarios();
-        $usuarios->id_user = $request->id;
-        $usuarios->email_user = $request->email;
-        $usuarios->contraseña_user = $request->contraseña;
-        $usuarios->nom_user = $request->nombres;
-        $usuarios->apellidos_user = $request->apellidos;
-        $usuarios->fecha_ingreso = $request->fecha;
-        $usuarios->telefono_user = $request->telefono;
-        $usuarios->direccion_user = $request->direccion;
-        $usuarios->cod_rol = $request->rol;
-        $usuarios->save();
-        return redirect()->route('post_reg_usuario')->with('guardado', 'Tarea creada correctamente');
-    }
+            $usuarios = new tbl_usuarios();
+            $usuarios->id_user = $request->id;
+            $usuarios->email_user = $request->email;
+            $usuarios->contraseña_user = $request->contraseña;
+            $usuarios->nom_user = $request->nombres;
+            $usuarios->apellidos_user = $request->apellidos;
+            $usuarios->fecha_ingreso = $request->fecha;
+            $usuarios->telefono_user = $request->telefono;
+            $usuarios->direccion_user = $request->direccion;
+            $usuarios->cod_rol = $request->rol;
+            $usuarios->save();
+            return redirect()->route('post_reg_usuario')->with('guardado', 'Tarea creada correctamente');
+        }
     }
     public function index()
     {
@@ -63,19 +74,15 @@ class usuarios extends Controller
         return view('usuarios.registrar_usuario', compact('roles'));
     }
 
-    public function index3() 
-    {
-        $roles = tbl_roles::all();
-       return view('usuarios.editar_usuario', compact('roles'));
-    }
+  
 
     public function edit(tbl_usuarios $usuario)
     {
-
-        return view('usuarios.editar_usuario', compact('usuario'));
+        $roles = tbl_roles::all();
+        return view('usuarios.editar_usuario', compact('usuario','roles'));
     }
 
-  
+
 
 
     public function update(Request $request, tbl_usuarios $usuario)
@@ -92,7 +99,7 @@ class usuarios extends Controller
             'rol' => 'required|max:20',
         ]);
 
-        $usuario = new tbl_usuarios();
+       
         $usuario->id_user = $request->id;
         $usuario->email_user = $request->email;
         $usuario->contraseña_user = $request->contraseña;
@@ -104,7 +111,8 @@ class usuarios extends Controller
         $usuario->cod_rol = $request->rol;
         $usuario->save();
         session()->flash('actualizado', 'El usuario a sido editado con exito');
-        return view('usuarios.editar_usuario', compact('usuarios'));
+        return redirect()->route('reg_usuario')->with('guardado', 'La Empresa a sido guardada con exito');
+        return view('usuarios.editar_usuario', compact('usuario'));
     }
 
     public function destroy(tbl_usuarios $usuario)

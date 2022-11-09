@@ -58,7 +58,7 @@ class empresas extends Controller
         $empresas->email_empresa = $request->e_mail;
         $empresas->id_user = $request->id_user;
         $empresas->save();
-        return redirect()->route('reg_empresa')->with('guardado', 'La Empresa a sido guardada con exito');;
+        return redirect()->route('reg_empresa')->with('guardado', 'La Empresa a sido guardada con exito');
         return view('Articulos.editar_articulo', compact('articulo'));
     }
 }

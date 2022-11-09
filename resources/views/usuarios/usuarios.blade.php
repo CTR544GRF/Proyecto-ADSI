@@ -57,7 +57,7 @@
                 <td data-label="Direccion">{{$usuario->direccion_user}}</td>
                 <td data-label="E-mail">{{$usuario->email_user}}</td>
                 <td data-label="Rol">{{$usuario->cod_rol}}</td>
-                <td data-label="Editar"><a href="{{ route('edit_usuario',$usuario) }}">Editar</a></td>
+                <td data-label="Editar"><a href="{{ route('update_usuario',$usuario) }}">Editar</a></td>
                 <form action="{{route('delete_usuario',$usuario)}}" method="post" class="eliminar_datos">
                     @csrf
                     @method('delete')
