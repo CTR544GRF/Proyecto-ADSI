@@ -6,11 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\tbl_usuarios;
 use App\Models\tbl_roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class usuarios extends Controller
 {
     public function store(Request $request)
     {   
+        $existencia = DB::table('tbl_usuarios')
+            ->select('id_user')
+            ->where('id_user', '=', $request->id)
+            ->get();
+
+        if (isset($existencia[0])) {
+            if ($request->id == $existencia[0]->id_user) {
+                return redirect()->route('post_reg_usuario')->with('error', 'El id ya existe' . $request->id);
+            }
+        } else {
+
         $request->validate([
 
             'email' => 'required|max:30|email',
@@ -28,7 +40,7 @@ class usuarios extends Controller
         $usuarios = new tbl_usuarios();
         $usuarios->id_user = $request->id;
         $usuarios->email_user = $request->email;
-        $usuarios->contraseña_user = bcrypt($request->contraseña);
+        $usuarios->contraseña_user = $request->contraseña;
         $usuarios->nom_user = $request->nombres;
         $usuarios->apellidos_user = $request->apellidos;
         $usuarios->fecha_ingreso = $request->fecha;
@@ -38,7 +50,7 @@ class usuarios extends Controller
         $usuarios->save();
         return redirect()->route('post_reg_usuario')->with('guardado', 'Tarea creada correctamente');
     }
-
+    }
     public function index()
     {
 

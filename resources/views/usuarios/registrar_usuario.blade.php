@@ -82,6 +82,12 @@
 </script>
 @endif
 
+@if (session('error'))
+<script>
+    warning('Advertencia', '<?php echo session('error') ?>');
+</script>
+@endif
+
 @if ($errors->any())
 @foreach ($errors->all() as $message)
 <script>

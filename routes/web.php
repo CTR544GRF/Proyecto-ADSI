@@ -59,7 +59,7 @@ Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_us
 Route::get('/Usuarios/ver', [usuarios::class, 'index'])->name('ver_usuario');
 Route::get('/Usuarios/registro', [usuarios::class, 'index2'])->name('reg_usuario');
 Route::get('/Usuarios/editar/{usuario}', [usuarios::class, 'edit'])->name('edit_usuario');
-Route::get('/Usuarios/editar/{rol}', usuarios::class. '@index3')->name('edit_usuario');
+Route::get('/Usuarios/editarr/{rol}', usuarios::class. '@index3')->name('edit_usuario');
 Route::patch('/Usuarios/editar/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
 
@@ -67,8 +67,8 @@ Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('de
 Route::view('/Usuario/Registro/Roles', 'usuarios.roles')->name('crear_rol');
 Route::post('/Usuario/Registro/Roles', [roles::class, 'store'])->name('post_crear_rol');
 Route::get('/Usuario/Registro/Roles', [roles::class, 'index'])->name('crear_rol');
-Route::get('/Usuario/Registro/editar', [roles::class, 'edit'])->name('edit_rol');
-Route::patch('/Usuario/Registro/editar', [roles::class, 'update'])->name('update_rol');
+Route::get('/Usuario/Registro/editar/{rol}', [roles::class, 'edit'])->name('edit_rol');
+Route::patch('/Usuario/Registro/editar/{rol}', [roles::class, 'update'])->name('update_rol');
 Route::delete('/Usuario/Registro/{rol}', roles::class . '@destroy')->name('delete_rol');
 
 //vistas Salidas

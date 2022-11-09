@@ -22,3 +22,11 @@ function question(mensaje_uno, mensaje_dos) {
         icon: "question",
     });
 }
+
+function warning(mensaje_uno, mensaje_dos) {
+    Swal.fire({
+        title: mensaje_uno,
+        text: mensaje_dos,
+        icon: "warning",
+    });
+}
