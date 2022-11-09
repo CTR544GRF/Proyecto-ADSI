@@ -36,16 +36,20 @@
         </div> 
         <div class="from_group">
             <select name="causal" id="causal">
-                <option select="Causal salida">Causal salida</option>
-                <option value="Factura de venta - producto">Factura de venta - producto</option>
-                <option value="No conforme - producto">No conforme - producto</option>
-                <option value="Confección (Satelite) - materia prima">Confección (Satelite) - materia prima</option>
-                <option value="Baja - materia prima">Baja - materia prima</option>
-                <option value="Baja - insumo">Baja - insumo</option>
+                <option selected>Causal entrada</option>
+                <option value="Factura de compra - Materia prima o insumos">Factura de compra - Materia prima o insumos</option>
+                <option value="Devolucion - producto">Devolucion - producto</option>
+                <option value="Confección (Satelite) - producto">Confección (Satelite) - producto</option>
             </select>                  
         </div>
         <div class="from_group">
-            <input type="number"  class="from_input" placeholder="Número de factura" name="num_factura" >
+            <select name="num_factura" class="from_group">
+                <option selected><button href="{{route('reg_factura')}}" ><a >Seleccione una factura</a></button></option>
+                <option value="">No aplica</option>
+                @foreach ($facturas_view as $factura)
+                <option value="{{$factura->num_factura}}">{{$factura->num_factura}} - {{$factura->tipo_factura}} </option>
+                @endforeach
+            </select>
         </div>
         <div class="from_group">
             <input type="number"  class="from_input" placeholder="Cantidad" name="cantidad" 
@@ -72,7 +76,7 @@
 @if ($errors->any())
 @foreach ($errors->all() as $message)
 <script>
-    error('Dato Errado', '')
+    error('Dato Errado', 'Dejo algún campo sin seleccionar')
 </script>
 @endforeach
 

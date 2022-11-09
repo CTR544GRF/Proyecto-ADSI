@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\tbl_articulos;
+use App\Models\tbl_facturas;
 use App\Models\tbl_registros;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,8 @@ class salidas extends Controller
     }
 
     public function index2(){
-        $articulos = tbl_articulos::all();
-        return view('salidas.registrar_salida', compact('articulos'));
+        $articulos_view = tbl_articulos::all();
+        $facturas_view = tbl_facturas::all();
+        return view('salidas.registrar_salida', compact('articulos_view','facturas_view'));
     }
 }
